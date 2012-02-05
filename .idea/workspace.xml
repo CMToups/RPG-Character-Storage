@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c96bfb1b-7827-4a9d-9b08-ac2100ddbe06" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Sivli.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/Skills.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/items.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/spells.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Ability.rb" afterPath="$PROJECT_DIR$/app/models/Ability.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Character.rb" afterPath="$PROJECT_DIR$/app/models/Character.rb" />
     </list>
     <ignored path="my2app.iws" />
@@ -31,19 +25,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Ability.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Ability.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/Ability.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="28" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0">
+            <state line="32" column="0" selection-start="664" selection-end="664" vertical-scroll-proportion="0.2360515">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Skills.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Skills.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Skills.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="72" selection-start="839" selection-end="839" vertical-scroll-proportion="0.42060086">
+            <state line="41" column="72" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -52,7 +46,7 @@
       <file leaf-file-name="Character.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Character.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="16" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+            <state line="25" column="20" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -672,13 +666,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/Ability.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="28" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/spells.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="21" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
@@ -693,16 +680,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Character.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/Skills.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="16" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+        <state line="41" column="72" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Skills.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/Character.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="72" selection-start="839" selection-end="839" vertical-scroll-proportion="0.42060086">
+        <state line="25" column="20" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Ability.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="664" selection-end="664" vertical-scroll-proportion="0.2360515">
           <folding />
         </state>
       </provider>
