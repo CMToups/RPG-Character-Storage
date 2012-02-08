@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c96bfb1b-7827-4a9d-9b08-ac2100ddbe06" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/skills.rb" afterPath="$PROJECT_DIR$/app/models/Skills.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/spells.rb" afterPath="$PROJECT_DIR$/app/models/Spells.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/my2app.iml" afterPath="$PROJECT_DIR$/.idea/my2app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Ability.rb" afterPath="$PROJECT_DIR$/app/models/Ability.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Character.rb" afterPath="$PROJECT_DIR$/app/models/Character.rb" />
     </list>
     <ignored path="my2app.iws" />
@@ -25,19 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Ability.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/Ability.rb">
+      <file leaf-file-name="Skills.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/Skills.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="664" selection-end="664" vertical-scroll-proportion="0.2360515">
+            <state line="47" column="53" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.6137339">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Skills.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Skills.rb">
+      <file leaf-file-name="Ability.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Ability.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="72" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+            <state line="17" column="5" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -46,16 +51,16 @@
       <file leaf-file-name="Character.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Character.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="20" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
+            <state line="11" column="8" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spells.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/spells.rb">
+      <file leaf-file-name="Spells.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Spells.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="21" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,10 +90,11 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/models/skills.rb" />
-        <option value="$PROJECT_DIR$/app/models/Ability.rb" />
-        <option value="$PROJECT_DIR$/app/models/spells.rb" />
         <option value="$PROJECT_DIR$/app/models/items.rb" />
+        <option value="$PROJECT_DIR$/app/models/spells.rb" />
+        <option value="$PROJECT_DIR$/app/models/Spells.rb" />
         <option value="$PROJECT_DIR$/app/models/Skills.rb" />
+        <option value="$PROJECT_DIR$/app/models/Ability.rb" />
         <option value="$PROJECT_DIR$/app/models/Character.rb" />
       </list>
     </option>
@@ -126,8 +132,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="RailsProjectView" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -226,6 +230,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -597,30 +603,31 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="c96bfb1b-7827-4a9d-9b08-ac2100ddbe06" name="Default" comment="" />
       <created>1328394280283</created>
       <updated>1328394280283</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1059" height="1178" extended-state="0" />
-    <editor active="true" />
+    <frame x="4" y="22" width="1059" height="1178" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296501" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24927536" sideWeight="0.6703499" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24927536" sideWeight="0.6703499" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296501" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296501" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -666,37 +673,40 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/spells.rb">
+    <entry file="file://$PROJECT_DIR$/.rvmrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="21" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/items.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="23" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="23" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Skills.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/Spells.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="72" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Character.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="20" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
+        <state line="11" column="8" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Ability.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="664" selection-end="664" vertical-scroll-proportion="0.2360515">
+        <state line="17" column="5" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Skills.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="53" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.6137339">
           <folding />
         </state>
       </provider>
