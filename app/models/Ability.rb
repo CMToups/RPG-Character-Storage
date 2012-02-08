@@ -13,27 +13,29 @@ class Ability
   end
 
   def set_strength( value )
-    @strength = value
+    @@strength = value
     $str = (value - 10) / 2
   end
   def set_dexterity( value )
-    @dexterity = value
+
+
+    @@dexterity = value
     $dex = (value - 10) / 2
   end
   def set_constitution( value )
-    @constitution = value
+    @@constitution = value
     $con = (value - 10) / 2
   end
   def set_intelligence( value )
-    @intelligence = value
+    @@intelligence = value
     $int = (value - 10) / 2
   end
   def set_wisdom( value )
-    @wisdom = value
+    @@wisdom = value
     $wis = (value - 10) / 2
   end
   def set_charisma( value )
-    @charisma = value
+    @@charisma = value
     $cha = (value - 10) / 2
   end
 

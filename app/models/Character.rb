@@ -38,7 +38,7 @@ class Character
   @a.set_charisma(18)
 
   @s = Skills.new()
-  @s.list()
+  @s.build_skill_array
 
 
   #end testing code
