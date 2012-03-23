@@ -11,6 +11,17 @@
     </div>
   <% end %>
 
+  <div class="field">
+	<%= f.label :name %>
+    <%= f.text_field :name %><br />
+	<%= fields_for @character.Ability do |ability| %>
+    <%= ability.label :strength %>
+    <%= ability.number_field :strength %><br />
+	<%= ability.label :dexterity %>
+    <%= ability.number_field :dexterity %><br />
+	<% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
   # GET /characters/1.json
   def show
     @character = Character.find(params[:id])
-
+    #@ability = Ability.where(:character_id => params[:id]).first
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @character }
@@ -30,6 +30,7 @@ class CharactersController < ApplicationController
   # GET /characters/1/edit
   def edit
     @character = Character.find(params[:id])
+    @ability = Ability.where(:character_id => params[:id]).first
   end
 
   # POST /characters

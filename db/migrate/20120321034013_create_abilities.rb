@@ -14,6 +14,8 @@ class CreateAbilities < ActiveRecord::Migration
       t.integer :int
       t.integer :wis
       t.integer :cha
+      
+      t.integer :character_id
 
       t.timestamps
     end

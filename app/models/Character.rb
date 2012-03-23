@@ -2,20 +2,25 @@ class Character < ActiveRecord::Base
 
   validates :name, :presence => true
   
-  has_one :Ability
+  has_one :Ability, :dependent => :destroy
+  accepts_nested_attributes_for :Ability
   
-
+  before_create :build_default_Ability
   
-=begin
-    begin
-    def can't do that initialize(game)
-      case
-        when game == "Pathfinder"
-          @a = Ability.new
-          @s = Skills.new()
-      end
-    end
-    end
+  private
+  def build_default_Ability
+    # build default profile instance. Will use default params.
+    # The foreign key to the owning Character model is set automatically
+    build_Ability
+    true # Always return true in callbacks as the normal 'continue' state
+         # Assumes that the default_profile can **always** be created.
+         # or
+         # Check the validation of the profile. If it is not valid, then
+         # return false from the callback. Best to use a before_validation 
+         # if doing this. View code should check the errors of the child.
+         # Or add the child's errors to the Character model's error array of the :base
+         # error item
+  end
 
 
     #required information
@@ -31,21 +36,4 @@ class Character < ActiveRecord::Base
                   :fortitude, :reflex, :will, :base_attack, :spell_resistance,
                   :cmb, :cmd
 
-    #testing code
-
-    @a = Ability.new
-    @a.set_strength(12)
-    @a.set_dexterity(14)
-    @a.set_constitution(15)
-    @a.set_intelligence(10)
-    @a.set_wisdom(9)
-    @a.set_charisma(18)
-
-    @s = Skills.new()
-    @s.build_skill_array
-
-
-    #end testing code
-=end
-  
 end

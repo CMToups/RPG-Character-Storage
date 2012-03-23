@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322234715) do
+ActiveRecord::Schema.define(:version => 20120322025819) do
 
   create_table "abilities", :force => true do |t|
     t.integer  "strength"
@@ -20,24 +20,19 @@ ActiveRecord::Schema.define(:version => 20120322234715) do
     t.integer  "intelligence"
     t.integer  "wisdom"
     t.integer  "charisma"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
     t.integer  "str"
     t.integer  "dex"
     t.integer  "con"
     t.integer  "int"
     t.integer  "wis"
     t.integer  "cha"
-    t.string   "name"
+    t.integer  "character_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "characters", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.string   "name"
-  end
-
-  create_table "charactors", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

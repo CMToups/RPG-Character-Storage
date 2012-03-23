@@ -1,9 +1,13 @@
-<table class="profile">
-  <tr>
-    <td class="main">
-	<h1><%= @character.name %></h1><br />
-	<%= link_to 'Edit', edit_character_path(@character) %> |
-	<%= link_to 'Back', characters_path %>
-	</td>
-  </tr>
-</table>
+<h1><%= @character.name %></h1><br />
+
+
+<p>Strength: <%= @character.Ability.strength%> Mod: <%= @character.Ability.str %></p>
+<p>Dexterity: <%=@character.Ability.dexterity%> Mod: <%=@character.Ability.dex %></p>
+<p><%=h "Constitution: #{@character.Ability.constitution} Mod: #{@character.Ability.con}" %></p>
+<p><%=h "Intelligence: #{@character.Ability.intelligence} Mod: #{@character.Ability.int}" %></p>
+<p><%=h "Wisdom: #{@character.Ability.wisdom} Mod: #{@character.Ability.wis}" %><p>
+<p><%=h "Charisma: #{@character.Ability.charisma} Mod: #{@character.Ability.cha}" %></p>
+
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>
