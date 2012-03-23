@@ -1,8 +1,13 @@
-class Ability
-  attr_reader :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma
+class Ability < ActiveRecord::Base
+  
+  belongs_to :Character
 
-  def initialize
-
+  validates :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma,
+  :str, :dex, :con, :int, :wis, :cha, :presence => true
+  
+  validate after_initialize :init
+    
+  def init
     set_strength(10)
     set_dexterity(10)
     set_constitution(10)
@@ -13,30 +18,28 @@ class Ability
   end
 
   def set_strength( value )
-    @@strength = value
-    $str = (value - 10) / 2
+    self.strength = value
+    self.str = (value - 10) / 2
   end
   def set_dexterity( value )
-
-
-    @@dexterity = value
-    $dex = (value - 10) / 2
+    self.dexterity = value
+    self.dex = (value - 10) / 2
   end
   def set_constitution( value )
-    @@constitution = value
-    $con = (value - 10) / 2
+    self.constitution = value
+    self.con = (value - 10) / 2
   end
   def set_intelligence( value )
-    @@intelligence = value
-    $int = (value - 10) / 2
+    self.intelligence = value
+    self.int = (value - 10) / 2
   end
   def set_wisdom( value )
-    @@wisdom = value
-    $wis = (value - 10) / 2
+    self.wisdom = value
+    self.wis = (value - 10) / 2
   end
   def set_charisma( value )
-    @@charisma = value
-    $cha = (value - 10) / 2
+    self.charisma = value
+    self.cha = (value - 10) / 2
   end
 
   #TODO temp and adjustments
