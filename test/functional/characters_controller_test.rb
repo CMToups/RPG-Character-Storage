@@ -17,6 +17,9 @@ class CharactersControllerTest < ActionController::TestCase
   end
 
   test "should create character" do
+    
+    @character.name = "test"
+    
     assert_difference('Character.count') do
       post :create, character: @character.attributes
     end

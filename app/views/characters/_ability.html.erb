@@ -1,0 +1,7 @@
+<div class="ability">
+
+<% fields_for @Ability do |ff| -%>
+    <%= ff.label @character.Ability.strength %>
+    <%= ff.number_field :strength %>
+<% end -%>
+</div>

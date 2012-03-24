@@ -3,8 +3,8 @@ class Character < ActiveRecord::Base
   validates :name, :presence => true
   
   has_one :Ability, :dependent => :destroy
-  accepts_nested_attributes_for :Ability
-  
+  accepts_nested_attributes_for :Ability, :update_only=>true
+
   before_create :build_default_Ability
   
   private
@@ -13,7 +13,7 @@ class Character < ActiveRecord::Base
     # The foreign key to the owning Character model is set automatically
     build_Ability
     true # Always return true in callbacks as the normal 'continue' state
-         # Assumes that the default_profile can **always** be created.
+         # Assumes that the default_ability can **always** be created.
          # or
          # Check the validation of the profile. If it is not valid, then
          # return false from the callback. Best to use a before_validation 
@@ -22,6 +22,7 @@ class Character < ActiveRecord::Base
          # error item
   end
 
+    #TODO implement these fields, migrations needed.
 
     #required information
     attr_accessor :character_name, :player, :race, :character_level, #these last two might become methods

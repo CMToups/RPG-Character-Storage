@@ -6,41 +6,34 @@ class Ability < ActiveRecord::Base
   :str, :dex, :con, :int, :wis, :cha, :presence => true
   
   validate after_initialize :init
-    
+  before_save :set_mods
+  
+  private  
   def init
-    self.strength = 10
-    self.dexterity = 10
-    self.constitution = 10
-    self.intelligence = 10
-    self.wisdom = 10
-    self.charisma = 10
+    self.strength ||= 10 
+    self.dexterity ||= 10
+    self.constitution ||= 10
+    self.intelligence ||= 10
+    self.wisdom ||= 10
+    self.charisma ||= 10
+    :set_mods
   end
+  
+  #this MUST change but custom setters had massive issues.
+  def set_mods
+    self.str = (self.strength - 10) / 2
 
-  def strength=( value )
-    self[:strength] = value
-    self.str = (value.to_i - 10) / 2
-  end
-  def dexterity=( value )
-    self[:dexterity] = value
-    self.dex = (value.to_i - 10) / 2
-  end
-  def constitution=( value )
-    write_attribute(:constitution, value)
-    self.con = (value.to_i - 10) / 2
-  end
-  def intelligence=( value )
-    write_attribute(:intelligence, value)
-    self.int = (value.to_i - 10) / 2
-  end
-  def wisdom=( value )
-    write_attribute(:wisdom, value)
-    self.wis = (value.to_i - 10) / 2
-  end
-  def charisma=( value )
-    write_attribute(:charisma, value)
-    self.cha = (value.to_i - 10) / 2
-  end
+    self.dex = (self.dexterity - 10) / 2
 
+    self.con = (self.constitution - 10) / 2
+
+    self.int = (self.intelligence - 10) / 2
+
+    self.wis = (self.wisdom - 10) / 2
+
+    self.cha = (self.charisma - 10) / 2
+  end
+  
   #TODO temp and adjustments
 
 end
