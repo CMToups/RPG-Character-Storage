@@ -4,8 +4,10 @@ class Character < ActiveRecord::Base
   
   has_one :Ability, :dependent => :destroy
   accepts_nested_attributes_for :Ability, :update_only=>true
-
   before_create :build_default_Ability
+  
+  has_many :Skill, :dependent => :destroy
+  has_many :Skill_type, :through => :skill
   
   private
   def build_default_Ability

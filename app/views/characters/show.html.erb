@@ -1,13 +1,19 @@
 <h1><%= @character.name %></h1><br />
 
+<p>Ability List</p>
 
 <p>Strength: <%= @character.Ability.strength%> Mod: <%= @character.Ability.str %></p>
-<p>Dexterity: <%=@character.Ability.dexterity%> Mod: <%=@character.Ability.dex %></p>
+<p>Dexterity: <%= @character.Ability.dexterity%> Mod: <%=@character.Ability.dex %></p>
 <p><%=h "Constitution: #{@character.Ability.constitution} Mod: #{@character.Ability.con}" %></p>
 <p><%=h "Intelligence: #{@character.Ability.intelligence} Mod: #{@character.Ability.int}" %></p>
 <p><%=h "Wisdom: #{@character.Ability.wisdom} Mod: #{@character.Ability.wis}" %><p>
 <p><%=h "Charisma: #{@character.Ability.charisma} Mod: #{@character.Ability.cha}" %></p>
 
+<p>Skills List</p>
+
+<%= @character.Skill.each do |skill|%>
+<p><%= skill %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>

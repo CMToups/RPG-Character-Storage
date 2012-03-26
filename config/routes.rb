@@ -3,6 +3,8 @@ My2app::Application.routes.draw do
   root :to => "home#index"
   
   resources :characters
+  
+  resources :skill
 
   resources :abilities
 
