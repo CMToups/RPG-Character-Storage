@@ -1,5 +1,5 @@
 class NotificationObserver < ActiveRecord::Observer
-  observe :ability
+  observe :Ability
   
   def after_save(ability)
     @skill = Skill.where(:character_id => ability.character_id)
