@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120325220434) do
     t.string   "name"
     t.string   "discription"
     t.string   "modifier_type"
+    t.boolean  "default"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

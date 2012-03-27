@@ -5,6 +5,7 @@ class CreateSkillTypes < ActiveRecord::Migration
       t.string :name
       t.string :discription
       t.string :modifier_type
+      t.boolean :default
       
       t.timestamps
     end

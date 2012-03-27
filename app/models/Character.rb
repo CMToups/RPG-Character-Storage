@@ -4,13 +4,14 @@ class Character < ActiveRecord::Base
   
   has_one :Ability, :dependent => :destroy
   accepts_nested_attributes_for :Ability, :update_only=>true
-  before_create :build_default_Ability
+  before_create :build_default_Character
+  after_create :default_skill_list
   
   has_many :Skill, :dependent => :destroy
   has_many :Skill_type, :through => :skill
   
   private
-  def build_default_Ability
+  def build_default_Character
     # build default profile instance. Will use default params.
     # The foreign key to the owning Character model is set automatically
     build_Ability
@@ -23,20 +24,30 @@ class Character < ActiveRecord::Base
          # Or add the child's errors to the Character model's error array of the :base
          # error item
   end
+  
+
+  def default_skill_list
+    SkillType.where(:default => true).each do |st|     
+      @skill = self.Skill.build
+      @skill.skill_type_id = st.id
+      @skill.save!
+      
+    end
+  end
 
     #TODO implement these fields, migrations needed.
 
     #required information
-    attr_accessor :character_name, :player, :race, :character_level, #these last two might become methods
-                  :hit_points, :speed, :language, :money, :experience, :feats, :specal_abilities
+    #attr_accessor :character_name, :player, :race, :character_level, #these last two might become methods
+    #              :hit_points, :speed, :language, :money, :experience, :feats, :specal_abilities
 
     #variable character info
-    attr_accessor :homeland, :alignment, :deity, :size, :gender,
-                  :age, :height, :weight, :hair, :eye
+    #attr_accessor :homeland, :alignment, :deity, :size, :gender,
+    #              :age, :height, :weight, :hair, :eye
 
     #generated info
-    attr_accessor :initiative, :armor_class_ac, :armor_class_touch, :armor_class_ff,
-                  :fortitude, :reflex, :will, :base_attack, :spell_resistance,
-                  :cmb, :cmd
+    #attr_accessor :initiative, :armor_class_ac, :armor_class_touch, :armor_class_ff,
+    #              :fortitude, :reflex, :will, :base_attack, :spell_resistance,
+    #              :cmb, :cmd
 
 end

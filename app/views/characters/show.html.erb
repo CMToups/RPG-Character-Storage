@@ -11,12 +11,12 @@
 
 <p>Skills List</p>
 
-<p>
+
 <% @character.Skill.each do |skill|%>
 <% @s = SkillType.where(:id => skill.skill_type_id).first %>
-"<%= @s.name %>" Total: <%= skill.total %> <%= @s.modifier_type %>: <%= skill.mod_value %> Rank: <%= skill.rank%> <%= p "Misc: #{skill.misc}" if skill.misc != 0 %>
+<p>"<%= @s.name %>" Total: <%= skill.total %> <%= @s.modifier_type %>: <%= skill.mod_value %> Rank: <%= skill.rank%> <%= p "Misc: #{skill.misc}" if skill.misc != 0 %></p>
 <% end %>
-</p>
+
 
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
