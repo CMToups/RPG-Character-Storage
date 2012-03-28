@@ -1,7 +1,7 @@
 My2app::Application.routes.draw do
   
-  root :to => "home#index"
-  
+  #root :to => "home#index"
+  root :to => "characters#index"
   resources :characters
   
   resources :skill_types
