@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(:version => 20120325220434) do
     t.integer  "rank"
     t.integer  "misc"
     t.integer  "character_id"
-    t.integer  "skill_type_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "skillType_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

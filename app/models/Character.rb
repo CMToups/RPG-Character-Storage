@@ -4,11 +4,17 @@ class Character < ActiveRecord::Base
   
   has_one :Ability, :dependent => :destroy
   accepts_nested_attributes_for :Ability, :update_only=>true
+  
+  has_many :Skill, :dependent => :destroy
+  accepts_nested_attributes_for :Skill
+  
+  has_many :SkillType, :through => :Skill
+  accepts_nested_attributes_for :SkillType
+  
   before_create :build_default_Character
   after_create :default_skill_list
   
-  has_many :Skill, :dependent => :destroy
-  has_many :Skill_type, :through => :skill
+
   
   private
   def build_default_Character
@@ -29,7 +35,7 @@ class Character < ActiveRecord::Base
   def default_skill_list
     SkillType.where(:default => true).each do |st|     
       @skill = self.Skill.build
-      @skill.skill_type_id = st.id
+      @skill.skillType_id = st.id
       @skill.save!
     end
   end

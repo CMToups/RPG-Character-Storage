@@ -14,6 +14,8 @@ class CharactersController < ApplicationController
   # GET /characters/1.json
   def show
     @character = Character.find(params[:id])
+    @ability = Ability.where(:character_id => params[:id]).first
+    @skills = Skill.where(:character_id => params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @character }
@@ -30,6 +32,7 @@ class CharactersController < ApplicationController
   def edit
     @character = Character.find(params[:id])
     @ability = Ability.where(:character_id => params[:id]).first
+    @skills = Skill.where(:character_id => params[:id])
   end
 
   # POST /characters
@@ -57,6 +60,10 @@ class CharactersController < ApplicationController
       if @character.update_attributes(params[:character])
         format.html { redirect_to @character, notice: 'Character was successfully updated.' }
         format.json { head :no_content }
+        @skill = Skill.where(:character_id => params[:id])
+        @skill.each do |skill|
+          skill.save
+        end
       else
         format.html { render action: "edit" }
         format.json { render json: @character.errors, status: :unprocessable_entity }

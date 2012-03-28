@@ -16,21 +16,30 @@
 	<%= f.label :name %>
     <%= f.text_field :name %><br />
 
-	<%= f.fields_for :Ability, @character.Ability do |ability| %>
-    <%= ability.label :strength %>
-    <%= ability.number_field :strength %><br />
-	<%= ability.label :dexterity %>
-    <%= ability.number_field :dexterity %><br />
-	<%= ability.label :constitution %>
-    <%= ability.number_field :constitution %><br />
-	<%= ability.label :intelligence %>
-    <%= ability.number_field :intelligence %><br />
-	<%= ability.label :wisdom %>
-    <%= ability.number_field :wisdom %><br />
-	<%= ability.label :charisma %>
-    <%= ability.number_field :charisma %><br />
+	<p> Abilities </p>
+	<%= f.fields_for :Ability, f.object.Ability do |ability| %>
+	    <%= ability.label :strength %>
+	    <%= ability.number_field :strength %><br />
+		<%= ability.label :dexterity %>
+	    <%= ability.number_field :dexterity %><br />
+		<%= ability.label :constitution %>
+	    <%= ability.number_field :constitution %><br />
+		<%= ability.label :intelligence %>
+	    <%= ability.number_field :intelligence %><br />
+		<%= ability.label :wisdom %>
+	    <%= ability.number_field :wisdom %><br />
+		<%= ability.label :charisma %>
+	    <%= ability.number_field :charisma %><br />
+	<% end %>
+	
+	<p> Skills </p>
+	<%= f.fields_for :Skill do |sf| %>
+		<%= SkillType.find(sf.object.skillType_id).name %>
+		Rank: <%= sf.number_field :rank %>
+		Misc: <%= sf.number_field :misc %><br />
 	<% end %>
   </div>
+<%= link_to 'New Skill', new_skill_type_path %>
 
   <div class="actions">
     <%= f.submit %>

@@ -15,6 +15,7 @@ class SkillController < ApplicationController
   # GET /abilities/new
   # GET /abilities/new.json
   def new
+    @skillType = SkillType.new
     @skill = Skill.new
 
     respond_to do |format|

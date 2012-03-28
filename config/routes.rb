@@ -4,7 +4,7 @@ My2app::Application.routes.draw do
   
   resources :characters
   
-  resources :skill
+  resources :skill_types
 
   resources :abilities
 
