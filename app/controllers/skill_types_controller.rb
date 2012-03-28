@@ -25,8 +25,7 @@ class SkillTypesController < ApplicationController
   # GET /skill_types/new.json
   def new
     @skill_type = SkillType.new
-    session[:prev_url] = request.referer
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @skill_type }
@@ -42,9 +41,10 @@ class SkillTypesController < ApplicationController
   # POST /skill_types.json
   def create
     @skill_type = SkillType.new(params[:skill_type])
+
     respond_to do |format|
       if @skill_type.save
-        format.html { redirect_to session[:prev_url], notice: 'Skill was successfully created.' }
+        format.html { redirect_to @skill_type, notice: 'Skill type was successfully created.' }
         format.json { render json: @skill_type, status: :created, location: @skill_type }
       else
         format.html { render action: "new" }
