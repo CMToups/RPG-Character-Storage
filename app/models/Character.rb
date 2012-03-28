@@ -31,7 +31,6 @@ class Character < ActiveRecord::Base
       @skill = self.Skill.build
       @skill.skill_type_id = st.id
       @skill.save!
-      
     end
   end
 

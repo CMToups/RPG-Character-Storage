@@ -1,5 +1,3 @@
-
-
 class Spells
 
   attr :spell, :dc
