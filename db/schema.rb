@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120325220434) do
+ActiveRecord::Schema.define(:version => 20120328215153) do
 
   create_table "abilities", :force => true do |t|
     t.integer  "strength"
