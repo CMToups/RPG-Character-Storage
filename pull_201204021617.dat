@@ -1,0 +1,1 @@
+{"klass":"Taps::Pull","database_url":"sqlite://db/development.sqlite3","remote_url":"http://heroku:osui59a24am79x@taps19.heroku.com","session_uri":"/sessions/1826381032","stream_state":{},"completed_tables":[],"table_filter":null,"remote_tables_info":{"schema_migrations":200,"abilities":200,"characters":200,"skills":200,"skill_types":200}}

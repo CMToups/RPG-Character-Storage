@@ -13,10 +13,10 @@
 
 
 <% @character.SkillType.sort { |a,b| a.name <=> b.name }.each do |s|%>
-	<% #@skill = @character.Skill.where(:SkillType_id => s.id).first %>
-	<% #if @skill %>
-		<!--p>"<%#= s.name %>" Total: <%#= @skill.total %> <%#= s.modifier_type %>: <%#= @skill.mod_value %> Rank: <%#= @skill.rank%> <%#= p "Misc: #{@skill.misc}" if @skill.misc != 0 %></p-->
-	<% #end %>
+	<% @skill = @character.Skill.where(:skillType_id => s.id).first %>
+	<% if @skill %>
+		<p>"<%= s.name %>" Total: <%= @skill.total %> <%= s.modifier_type %>: <%= @skill.mod_value %> Rank: <%= @skill.rank%> <%= p "Misc: #{@skill.misc}" if @skill.misc != 0 %></p>
+	<% end %>
 <% end %>
 
 
