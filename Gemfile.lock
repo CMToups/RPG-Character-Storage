@@ -165,7 +165,6 @@ DEPENDENCIES
   pg
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
-  sqlite3
   taps
   therubyracer
   uglifier (>= 1.0.3)
