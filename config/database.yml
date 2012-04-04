@@ -6,7 +6,6 @@
 development:
   adapter: postgresql
   database: my2app_devdb
-  username: sivli
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -14,7 +13,6 @@ development:
 test:
   adapter: postgresql
   database: my2app_testdb
-  username: sivli
 
 production:
   adapter: sqlite3

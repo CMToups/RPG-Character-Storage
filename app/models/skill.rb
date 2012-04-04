@@ -8,15 +8,12 @@ class Skill < ActiveRecord::Base
   validate before_create :init
   validate before_save :update_mod, :set_total
   
-  validates :skillType_id, :character_id, :presence => true
+  validates :SkillType_id, :character_id, :presence => true
   
   def update_mod
-      @st = SkillType.where(:id => self.skillType_id).first
+      @st = SkillType.where(:id => self.SkillType_id).first
       @a = Ability.where(:id => self.character_id).first 
       @mod_key = @st.modifier_type
-      p @st
-      p @a
-      p @mod_key
       mod_value_will_change!
       self.mod_value = @a.send(@mod_key)
   end

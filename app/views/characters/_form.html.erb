@@ -34,7 +34,7 @@
 	
 	<p> Skills </p>
 	<%= f.fields_for :Skill do |sf| %>
-		<%= SkillType.find(sf.object.skillType_id).name %>
+		<%= SkillType.find(sf.object.SkillType_id).name %>
 		Rank: <%= sf.number_field :rank %>
 		Misc: <%= sf.number_field :misc %><br />
 	<% end %>

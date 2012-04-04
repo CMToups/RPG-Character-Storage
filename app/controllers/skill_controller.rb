@@ -1,7 +1,5 @@
 class SkillController < ApplicationController
 
-  # GET /abilities/1
-  # GET /abilities/1.json
   def show
     
     @skill = Skill.find(params[:id])
@@ -12,8 +10,6 @@ class SkillController < ApplicationController
     end
   end
 
-  # GET /abilities/new
-  # GET /abilities/new.json
   def new
     @skillType = SkillType.new
     @skill = Skill.new
@@ -24,13 +20,10 @@ class SkillController < ApplicationController
     end
   end
 
-  # GET /abilities/1/edit
   def edit
     @skill = Skill.find(params[:id])
   end
 
-  # POST /abilities
-  # POST /abilities.json
   def create
     @skill = Skill.new(params[:skill])
 
@@ -45,8 +38,6 @@ class SkillController < ApplicationController
     end
   end
 
-  # PUT /abilities/1
-  # PUT /abilities/1.json
   def update
     @skill = Skill.find(params[:id])
 
@@ -61,8 +52,6 @@ class SkillController < ApplicationController
     end
   end
 
-  # DELETE /abilities/1
-  # DELETE /abilities/1.json
   def destroy
     @skill = Skill.find(params[:id])
     @skill.destroy

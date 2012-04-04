@@ -35,7 +35,7 @@ class Character < ActiveRecord::Base
   def default_skill_list
     SkillType.where(:default => true).each do |st|     
       @skill = self.Skill.build
-      @skill.skillType_id = st.id
+      @skill.SkillType_id = st.id
       @skill.save!
     end
   end

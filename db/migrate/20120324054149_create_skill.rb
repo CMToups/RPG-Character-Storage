@@ -8,7 +8,7 @@ class CreateSkill < ActiveRecord::Migration
       t.integer :misc
       
       t.integer :character_id
-      t.integer :skillType_id
+      t.integer :SkillType_id
 
       t.timestamps
     end
