@@ -12,7 +12,7 @@
 <p>Skills List</p>
 
 
-<% @character.SkillType .each do |s| %>
+<% @character.SkillType.sort { |a,b| a.name <=> b.name }.each do |s| %>
 	<% skill = @character.Skill.where(:SkillType_id => s).first %>
 		<p>"<%= s.name %>" Total: <%= skill.total %> <%= s.modifier_type %>: <%= skill.mod_value %> Rank: <%= skill.rank%> <%= p "Misc: #{@skill.misc}" if skill.misc != 0 %></p>
 <% end %>
