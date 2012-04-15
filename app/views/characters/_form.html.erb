@@ -33,10 +33,12 @@
 	<% end %>
 	
 	<p> Skills </p>
-	<%= f.fields_for :Skill do |sf| %>
-		<%= SkillType.find(sf.object.SkillType_id).name %>
+	<% @character.SkillType.each do |st| %>
+		<%= f.fields_for :Skill, @character.Skill.where(:SkillType_id => st) do |sf| %>
+		<%= st.name %>
 		Rank: <%= sf.number_field :rank %>
 		Misc: <%= sf.number_field :misc %><br />
+		<% end %>
 	<% end %>
   </div>
 <%= link_to 'New Skill', new_skill_type_path %>

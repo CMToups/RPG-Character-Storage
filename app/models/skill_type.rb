@@ -6,4 +6,6 @@ class SkillType < ActiveRecord::Base
   validates :name, :modifier_type, :presence => true
   
   validates_length_of :modifier_type, :is => 3
+  
+  default_scope :order => "name ASC"
 end
