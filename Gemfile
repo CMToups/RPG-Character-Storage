@@ -5,9 +5,8 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg', :group => :development
-gem 'taps', :group => :development
-gem 'pg', :group => :production
+gem 'sqlite3'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -16,7 +15,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer'
+  # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -37,12 +36,3 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-# user added gems
-
- gem 'capistrano'
- gem 'capistrano-ext'
- gem 'git_remote_branch'
- gem 'open_gem'
- gem 'heroku'
- gem 'awesome_nested_set'

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-My2app::Application.load_tasks
+RPGCharacterStorage::Application.load_tasks
