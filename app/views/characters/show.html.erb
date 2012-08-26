@@ -1,21 +1,24 @@
-<h1><%= @character.name %></h1><br />
+<p id="notice"><%= notice %></p>
 
-<p>Ability List</p>
+<p>
+  <b>Experience points:</b>
+  <%= @character.experience_points %>
+</p>
 
-<p>Strength: <%= @character.Ability.strength%> Mod: <%= @character.Ability.str %></p>
-<p>Dexterity: <%= @character.Ability.dexterity%> Mod: <%=@character.Ability.dex %></p>
-<p><%=h "Constitution: #{@character.Ability.constitution} Mod: #{@character.Ability.con}" %></p>
-<p><%=h "Intelligence: #{@character.Ability.intelligence} Mod: #{@character.Ability.int}" %></p>
-<p><%=h "Wisdom: #{@character.Ability.wisdom} Mod: #{@character.Ability.wis}" %><p>
-<p><%=h "Charisma: #{@character.Ability.charisma} Mod: #{@character.Ability.cha}" %></p>
+<p>
+  <b>Name:</b>
+  <%= @character.name %>
+</p>
 
-<p>Skills List</p>
+<p>
+  <b>Total hit points:</b>
+  <%= @character.total_hit_points %>
+</p>
 
-
-<% @character.SkillType.each do |s| %>
-	<% skill = @character.Skill.where(:SkillType_id => s).first %>
-		<p>"<%= s.name %>" Total: <%= skill.total %> <%= s.modifier_type %>: <%= skill.mod_value %> Rank: <%= skill.rank%> <%= p "Misc: #{skill.misc}" if skill.misc != 0 %></p>
-<% end %>
+<p>
+  <b>Money:</b>
+  <%= @character.money %>
+</p>
 
 
 <%= link_to 'Edit', edit_character_path(@character) %> |

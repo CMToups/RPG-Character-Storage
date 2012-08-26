@@ -1,4 +1,3 @@
-
 <%= form_for(@character) do |f| %>
   <% if @character.errors.any? %>
     <div id="error_explanation">
@@ -13,36 +12,21 @@
   <% end %>
 
   <div class="field">
-	<%= f.label :name %>
-    <%= f.text_field :name %><br />
-
-	<p> Abilities </p>
-	<%= f.fields_for :Ability, f.object.Ability do |ability| %>
-	    <%= ability.label :strength %>
-	    <%= ability.number_field :strength %><br />
-		<%= ability.label :dexterity %>
-	    <%= ability.number_field :dexterity %><br />
-		<%= ability.label :constitution %>
-	    <%= ability.number_field :constitution %><br />
-		<%= ability.label :intelligence %>
-	    <%= ability.number_field :intelligence %><br />
-		<%= ability.label :wisdom %>
-	    <%= ability.number_field :wisdom %><br />
-		<%= ability.label :charisma %>
-	    <%= ability.number_field :charisma %><br />
-	<% end %>
-	
-	<p> Skills </p>
-	<% @character.SkillType.each do |st| %>
-		<%= f.fields_for :Skill, @character.Skill.where(:SkillType_id => st) do |sf| %>
-		<%= st.name %>
-		Rank: <%= sf.number_field :rank %>
-		Misc: <%= sf.number_field :misc %><br />
-		<% end %>
-	<% end %>
+    <%= f.label :experience_points %><br />
+    <%= f.number_field :experience_points %>
   </div>
-<%= link_to 'New Skill', new_skill_type_path %>
-
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :total_hit_points %><br />
+    <%= f.number_field :total_hit_points %>
+  </div>
+  <div class="field">
+    <%= f.label :money %><br />
+    <%= f.number_field :money %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

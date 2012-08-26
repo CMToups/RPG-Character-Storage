@@ -2,6 +2,10 @@
 
 <table>
   <tr>
+    <th>Experience points</th>
+    <th>Name</th>
+    <th>Total hit points</th>
+    <th>Money</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,7 +13,10 @@
 
 <% @characters.each do |character| %>
   <tr>
-	<td><%= character.name %></td>
+    <td><%= character.experience_points %></td>
+    <td><%= character.name %></td>
+    <td><%= character.total_hit_points %></td>
+    <td><%= character.money %></td>
     <td><%= link_to 'Show', character %></td>
     <td><%= link_to 'Edit', edit_character_path(character) %></td>
     <td><%= link_to 'Destroy', character, confirm: 'Are you sure?', method: :delete %></td>
