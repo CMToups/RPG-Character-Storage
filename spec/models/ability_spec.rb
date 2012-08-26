@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe Ability do
+  
+  it "should save" do
+    ability = Ability.new(:name => :Strangth)
+    ability.save.should == true
+  end
 
   it "should have a valid name" do
     strangth = Ability.create(:name => :Strangth)
