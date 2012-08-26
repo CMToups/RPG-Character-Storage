@@ -20,6 +20,32 @@
   <%= @character.money %>
 </p>
 
+<p>
+  <b>Abilities:</b><br \>
+  <% @character.ability.each do |ability| %>
+	<%= ability.name %>: <%= ability.value %> Mod: <%= ability.modifier %><br \>
+  <% end %>
+</p>
+
+<p>
+  <b>Background:</b><br \>
+	Homeland: <%= @character.background.homeland  %><br \>
+ 	History: <%= @character.background.history %><br \>
+</p>
+
+<p>
+  <b>Aspect:</b><br \>
+	<% @aspect = @character.aspect  %>
+	Size:		<%= @aspect.size %><br \>
+	Gender:		<%= @aspect.gender %><br \>
+	Age:		<%= @aspect.age %><br \>
+	Height:		<%= @aspect.height %><br \>
+	Weight:		<%= @aspect.weight %><br \>
+	Hair:		<%= @aspect.hair %><br \>
+	Eye:		<%= @aspect.eye %><br \>
+	Alignment:	<%= @aspect.alignment %><br \>
+	Deity:		<%= @aspect.deity %><br \>
+</p>
 
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
