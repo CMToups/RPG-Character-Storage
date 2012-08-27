@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120827000443) do
+ActiveRecord::Schema.define(:version => 20120827014946) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -56,20 +56,36 @@ ActiveRecord::Schema.define(:version => 20120827000443) do
     t.datetime "updated_at",        :null => false
   end
 
-  create_table "feat_types", :force => true do |t|
+  create_table "characters_feats", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "feat_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "feats", :force => true do |t|
     t.string   "name"
     t.text     "prerequisites"
     t.text     "description"
-    t.integer  "feat"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "feats", :force => true do |t|
-    t.integer  "character_id"
-    t.integer  "feat_type_id"
+  create_table "skill_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "ability_type"
+    t.integer  "skill_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "skills", :force => true do |t|
+    t.integer  "rank"
+    t.integer  "character_id"
+    t.integer  "skill_type_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

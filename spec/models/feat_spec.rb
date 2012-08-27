@@ -1,17 +1,20 @@
 require 'spec_helper'
 
 describe Feat do
+  it "should have and belong to many characters" do
+     should have_and_belong_to_many(:character)
+  end
+  
+   it "should have valid name" do
+    should allow_value("Power Overwhelming").for(:name) 
+  end
 
- it "should belong to a character" do
-   should belong_to(:character)
- end
- 
- it "should belong to a feat type" do
-   should belong_to(:feat_type)
- end
- 
- it "should accept nested attributes for feat type" do
-   should accept_nested_attributes_for(:feat_type)
- end
+   it "should have valid description" do
+    should allow_value("this is a feat").for(:description)
+  end
+  
+   it "should have valid prerequisites" do
+    should allow_value("crazy prereq").for(:prerequisites) 
+  end
   
 end

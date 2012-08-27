@@ -3,27 +3,27 @@ class Character < ActiveRecord::Base
   before_validation :default_values
   before_create :add_abilities_to_character, :add_background, :add_aspect
   
-=begin  
-  belongs_to :player
-  belongs_to :race
-=end
+  
+  #belongs_to :player
+  #belongs_to :race
+
 
   has_one :aspect, :dependent => :destroy
   has_one :background, :dependent => :destroy
   
   has_many :ability, :dependent => :destroy
-=begin
-  has_many :character_class, :dependent => :destroy
-=end
-  has_many :feat, :dependent => :destroy
-  has_many :feat_type, :through => :feat
-=begin
-  has_many :possession, :dependent => :destroy
-  has_many :skill, :dependent => :destroy
-  has_many :spell, :dependent => :destroy
-=end
 
-    accepts_nested_attributes_for :ability, :background, :aspect, :feat
+  #has_many :character_class, :dependent => :destroy
+
+  has_and_belongs_to_many :feat
+
+  #has_many :possession, :dependent => :destroy
+  has_many :skill, :dependent => :destroy
+  has_many :skill_type, :through => :skill
+  #has_many :spell, :dependent => :destroy
+
+
+    accepts_nested_attributes_for :ability, :background, :aspect, :feat, :skill
 
     validates_presence_of :name
     

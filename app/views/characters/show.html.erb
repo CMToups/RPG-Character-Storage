@@ -48,12 +48,21 @@
 </p>
 
 <p>
+  <b>Skills:</b><br \>
+	<% @character.skill.all do |skill| %>
+	  <% skill_type = skill.skill_type %>
+	  Name:	<%= skill_type.name %> Rank: <%= skill.rank %><br \>
+	  Ability Type: <%= skill_type.ability_type %><br \>
+	  Description: <%= skill_type.description %><br \>
+	<% end %>
+</p>
+
+<p>
   <b>Feats:</b><br \>
 	<% @character.feat.all do |feat| %>
-	  <% feat_type = feat.feat_type %>
-	  Name:	<%= feat_type.name %><br \>
-	  Description: <%= feat_type.description %><br \>
-	  Prerequisites: <%= feat_type.prerequisites %><br \>
+	  Name:	<%= feat.name %><br \>
+	  Description: <%= feat.description %><br \>
+	  Prerequisites: <%= feat.prerequisites %><br \>
 	<% end %>
 </p>
 
