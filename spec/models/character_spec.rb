@@ -112,12 +112,20 @@ describe Character do
     should accept_nested_attributes_for :ability
   end
 
-#feat  
+#feat & feat_type
   it "should have many feats and be destroy dependent" do
      should have_many(:feat).dependent(:destroy) 
   end
+  
+  it "should accept nested attributes for feat" do
+    should accept_nested_attributes_for(:feat)
+  end
+  
+  it "should have many feat_types through feat" do
+      should have_many(:feat_type).through(:feat)
+  end
 
-#skill  
+#skill & skill_type
   it "should have many skills and be destroy dependent" do
      should have_many(:skill).dependent(:destroy) 
   end

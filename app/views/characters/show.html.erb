@@ -47,5 +47,15 @@
 	Deity:		<%= @aspect.deity %><br \>
 </p>
 
+<p>
+  <b>Feats:</b><br \>
+	<% @character.feat.all do |feat| %>
+	  <% feat_type = feat.feat_type %>
+	  Name:	<%= feat_type.name %><br \>
+	  Description: <%= feat_type.description %><br \>
+	  Prerequisites: <%= feat_type.prerequisites %><br \>
+	<% end %>
+</p>
+
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
