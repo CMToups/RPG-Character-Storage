@@ -47,4 +47,38 @@ describe Ability do
     strangth.modifier.should == -1
   end
   
+  describe "Effects #" do
+    
+    it "should respond to effects" do
+      strangth = Ability.create(:name => :Strangth)
+      strangth.should respond_to(:effects)
+    end
+    
+    it "new ability should have empty effects" do
+      strangth = Ability.create(:name => :Strangth)
+      strangth.effects.should == {}
+    end
+    
+    it "add_effect should add effect to effects" do
+      strangth = Ability.create(:name => :Strangth)
+       @some_effect = mock_model(Ability)
+       @some_effect.stub!(:name)
+      strangth.add_effect(@some_effect)
+      strangth.effects.should == { @some_effect.name => @some_effect}
+    end
+    
+    it "remove_effect should remove effect to effects" do
+      strangth = Ability.create(:name => :Strangth)
+      @some_effect = mock_model(Ability)
+      @some_effect.stub!(:name)
+      @some_other_effect = mock_model(Ability)
+      @some_other_effect.stub!(:name)
+      strangth.add_effect(@some_effect)
+      strangth.add_effect(@some_other_effect)
+      strangth.remove_effect(@some_effect)
+      strangth.effects.should == {@some_other_effect.name => @some_other_effect}
+    end
+    
+  end
+  
 end
