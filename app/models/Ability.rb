@@ -1,4 +1,4 @@
-ass Ability < ActiveRecord::Base
+class Ability < ActiveRecord::Base
   belongs_to :character
   
   validates_uniqueness_of :name, :scope => :character_id 
@@ -31,7 +31,7 @@ ass Ability < ActiveRecord::Base
   def remove_effect( effect )
     @effects.delete(effect)
   end
-  
+ 
 private
 
   def default_value
@@ -41,5 +41,5 @@ private
   def create_effect_hash
     @effects = {}
   end
-  
+   
 end
