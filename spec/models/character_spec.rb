@@ -208,4 +208,13 @@ describe Character do
 		@character.ability.where(:name => :Intelligence).first.total_value.should == 12
 	end
 	
+	it "add effect should add character id to the effectable table" do 
+			@character.save 
+		effect = Effect.create(:name => "some_effect", :target_klass => :Ability, :target_instance => :Strength, :value => 1)
+		@character.add_effect(effect)
+		@character.ability.where(:name => :Strength).first.total_value.should == 11
+		Effectable.where(:character_id => @character.id).first.effect.should == effect
+	end
+	
+	pending "should be able to get a list of all effects tied to a character"
 end
