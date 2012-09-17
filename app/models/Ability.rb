@@ -6,7 +6,6 @@ class Ability < ActiveRecord::Base
 
   validates_numericality_of :value
   
-  before_validation :create_effect_hash, :on => :create
   before_validation :default_value
   
   

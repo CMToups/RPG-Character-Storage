@@ -22,7 +22,7 @@ end
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
-  gem "shoulda", :git => "git://github.com/thoughtbot/shoulda.git"
+  gem "shoulda", :git => "git://github.com/thoughtbot/shoulda.git", :require => false
 end
 
 gem 'jquery-rails'

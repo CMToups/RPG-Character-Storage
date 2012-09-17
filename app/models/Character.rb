@@ -1,8 +1,7 @@
 class Character < ActiveRecord::Base
   
   before_validation :default_values
-  before_create :add_abilities_to_character, :add_background, :add_aspect
-  
+  before_create :stub_out_character 
   
   #belongs_to :player
   #belongs_to :race
@@ -40,8 +39,14 @@ private
     self.experience_points ||= 0
     self.money ||= 0
   end
+  
+  def stub_out_character
+  	add_abilities
+  	add_background
+  	add_aspect
+  end
 
-  def add_abilities_to_character
+  def add_abilities
     self.ability.build(:name => :Strength, :value => 10)
     self.ability.build(:name => :Dexterity, :value => 10)
     self.ability.build(:name => :Constitution, :value => 10)

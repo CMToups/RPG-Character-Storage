@@ -92,7 +92,7 @@ describe Character do
   
    it "abilities should save with character save" do
     @character.save
-    throw Ability.where(:character_id => @character).first.should_not == nil
+    Ability.where(:character_id => @character).first.should_not == nil
   end
   
   it "should have all six ablitites" do
@@ -152,7 +152,7 @@ describe Character do
   end
   
 #class  
-  it "should have many classes and be destroy dependent" do
+  pending "should have many classes and be destroy dependent" do
      should have_many(:character_class).dependent(:destroy) 
   end
 

@@ -70,6 +70,15 @@ describe Ability do
       strength.effects.should == {}
     end
     
+    it "should preserve effects when loaded from the database" do 
+    	strength = Ability.new(:name => :Strength)
+      strength.save
+      strength.effects.should == {}   
+      
+      copy_strength = Ability.find(strength.id)
+      copy_strength.effects.should == {}
+    end
+    
     it "add_effect should add effect to effects" do
       strength = Ability.create(:name => :Strength)
        @some_effect = mock_model(Ability)

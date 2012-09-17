@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe "characters/show" do
-  pending "Need to build the model/controllers first"
+  pending "Need to build the model/controllers first" do 
+  end
 end
