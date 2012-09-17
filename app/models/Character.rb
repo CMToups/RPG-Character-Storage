@@ -28,6 +28,10 @@ class Character < ActiveRecord::Base
     validates_presence_of :name
     
     validates_numericality_of :total_hit_points, :experience_points, :money 
+    
+    def add_effect(effect)
+    	
+    end
 
 private
 
@@ -38,7 +42,7 @@ private
   end
 
   def add_abilities_to_character
-    self.ability.build(:name => :Strangth, :value => 10)
+    self.ability.build(:name => :Strength, :value => 10)
     self.ability.build(:name => :Dexterity, :value => 10)
     self.ability.build(:name => :Constitution, :value => 10)
     self.ability.build(:name => :Intelligence, :value => 10)
