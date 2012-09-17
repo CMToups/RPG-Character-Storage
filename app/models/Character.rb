@@ -4,7 +4,7 @@ class Character < ActiveRecord::Base
   before_create :stub_out_character 
   
   #belongs_to :player
-  #belongs_to :race
+  belongs_to :race
 
 
   has_one :aspect, :dependent => :destroy

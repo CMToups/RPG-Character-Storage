@@ -47,8 +47,22 @@ describe Character do
    end
 
 #race   
-  pending "should belong to a race" do
+  it "should belong to a race" do
     should belong_to(:race)
+  end
+  
+  it "should be able to identify its race"  do 
+  	@character.save
+  	@character.race = Race.create(:name => :elf)
+  	@character.race.name.should == :elf
+  end
+  
+  it "should be able to access racial effects" do 
+  	race = Race.create 
+  	race.effect.create(:name => :some_effect)
+  	@character.race = race
+  	@character.save
+  	@character.race.effect.first.name.should == "some_effect"
   end
   
 #aspect  
@@ -168,15 +182,8 @@ describe Character do
 
 #effects
 
-	it "should be able to apply effects to abilities" do 
-		 str = @character.ability.where(:name => :Strength)
-		 str.total_value.should = 10
-		 effect = double("effect")
-		 effect.stub(:target_klass => :ability)
-		 effect.stub(:target_instance => :strength)
-		 effect.stub(:value => 1)
-		 @character.add_effect(effect)
-		 str.value.should = 11
+	pending "should be able to apply effects to abilities" do 
+		 @character.should_not be_valid
 	end
 
 end

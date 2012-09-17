@@ -8,10 +8,9 @@ class Ability < ActiveRecord::Base
   
   before_validation :default_value
   
-  
   def total_value
     temp_value = self.value
-    @effects.each { |effect| temp_value += effect.value }
+    effects.each { |effect| temp_value += effect.value }
     temp_value
   end
   
@@ -35,10 +34,6 @@ private
 
   def default_value
     self.value ||= 0
+    @effects = effects ||= {}
   end
-  
-  def create_effect_hash
-    @effects = {}
-  end
-   
 end

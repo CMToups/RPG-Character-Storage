@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120827014946) do
+ActiveRecord::Schema.define(:version => 20120917052750) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -63,12 +63,30 @@ ActiveRecord::Schema.define(:version => 20120827014946) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "effects", :force => true do |t|
+    t.string   "name"
+    t.string   "applies_to_klass"
+    t.string   "applies_to_instance"
+    t.integer  "effectable_id"
+    t.string   "effectable_type"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
   create_table "feats", :force => true do |t|
     t.string   "name"
     t.text     "prerequisites"
     t.text     "description"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "races", :force => true do |t|
+    t.string   "name"
+    t.integer  "speed"
+    t.string   "vision"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "skill_types", :force => true do |t|
