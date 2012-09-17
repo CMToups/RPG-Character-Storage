@@ -52,51 +52,39 @@ describe Ability do
     strength.total_value.should == 10
   end
   
-  describe "Effects #" do
+  describe " # Effects" do
     
-    it "should respond to effects" do
-      strength = Ability.create(:name => :Strength)
-      strength.should respond_to(:effects)
+    it "should have many effectables" do
+      should have_many(:effectable)
     end
     
-    it "create ability should have empty effects" do
-      strength = Ability.create(:name => :Strength)
-      strength.effects.should == {}
+    it "should have many effects" do
+      should have_many(:effect).through(:effectable)
     end
     
-    it "new ability should have empty effects" do
-      strength = Ability.new(:name => :Strength)
+    it "add_effect should add effect to effectable's relationship" do
+      strength = Ability.create(:name => :Strength)
+      strength.effect << Effect.create(:name => :some_name)
+      strength.effect.first.name.should == "some_name"
+    end
+    
+    it "remove_effect should remove effect when origin is deleted" do
+      race = Race.new 
+      race.effect << Effect.create(:name => :some_name)
+      race.save
+      strength = Ability.create(:name => :Strength)
+      strength.effect << race.effect.first
+      Ability.first.effect.first.name.should == "some_name"
       strength.save
-      strength.effects.should == {}
+      race.destroy
+      Race.first.should == nil
+      Ability.first.effect.should == []
     end
     
-    it "should preserve effects when loaded from the database" do 
-    	strength = Ability.new(:name => :Strength)
-      strength.save
-      strength.effects.should == {}   
-      
-      copy_strength = Ability.find(strength.id)
-      copy_strength.effects.should == {}
-    end
-    
-    it "add_effect should add effect to effects" do
-      strength = Ability.create(:name => :Strength)
-       @some_effect = mock_model(Ability)
-       @some_effect.stub!(:name)
-      strength.add_effect(@some_effect)
-      strength.effects.should == { @some_effect.name => @some_effect}
-    end
-    
-    it "remove_effect should remove effect to effects" do
-      strength = Ability.create(:name => :Strength)
-      @some_effect = mock_model(Ability)
-      @some_effect.stub!(:name)
-      @some_other_effect = mock_model(Ability)
-      @some_other_effect.stub!(:name)
-      strength.add_effect(@some_effect)
-      strength.add_effect(@some_other_effect)
-      strength.remove_effect(@some_effect)
-      strength.effects.should == {@some_other_effect.name => @some_other_effect}
+    it "should update total value" do 
+    	strength = Ability.create(:name => :Strength, :value => 10)
+      strength.effect << Effect.create(:name => :some_name, :value => 1)
+      Ability.first.total_value.should == 11
     end
     
   end

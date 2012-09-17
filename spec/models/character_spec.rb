@@ -59,7 +59,7 @@ describe Character do
   
   it "should be able to access racial effects" do 
   	race = Race.create 
-  	race.effect.create(:name => :some_effect)
+  	race.effect.create(:name => :some_effect, :target_klass => :Ability, :target_instance => :Strength)
   	@character.race = race
   	@character.save
   	@character.race.effect.first.name.should == "some_effect"
@@ -131,16 +131,10 @@ describe Character do
     should accept_nested_attributes_for :ability
   end
   
-  it "should be able to access ability total value" do
+  it "should be able to access an ability's total value" do
     @character.save
     str = @character.ability.where(:name => :Strength).first
     str.total_value.should == 10
-  end
-  
-  it "should be able to access ability effects" do 
-  	@character.save
-    str = @character.ability.where(:name => :Strength).first
-    str.effects.should == {}
   end
 
 #feat
@@ -190,20 +184,28 @@ describe Character do
 	
 	it "should be able to identify an effect's target" do 
 		 @character.race = Race.create 
-		 @character.race.effect.create(:applies_to_klass => :Ability, :applies_to_instance => :Strength)
+		 @character.race.effect.create(:target_klass => :Ability, :target_instance => :Strength)
 		 @character.save 
-		 klass = @character.race.effect.first.applies_to_klass
-		 instance = @character.race.effect.first.applies_to_instance
-		 @character.ability.where(:name => :Strength).first.should == klass.constantize.where(:name => instance).first
+		 klass = @character.race.effect.first.target_klass
+		 instance = @character.race.effect.first.target_instance
+		 klass.should == :Ability
+		 instance.should == :Strength
 	end
 	
 	it "should be able to send an effect to its target" do 
-		@character.race = Race.create 
-		@character.race.effect.create(:name => :some_effect, :applies_to_klass => :Ability, :applies_to_instance => :Strength)
 		@character.save 
-		  
-		@character.add_effect(@character.race.effect.first)
-		@character.ability.where(:name => :Strength).first.effects.first.name.should == "some_effect"
+		effect = Effect.create(:name => "some_effect", :target_klass => :Ability, :target_instance => :Strength, :value => 1)
+		@character.add_effect(effect)
+		@character.ability.where(:name => :Strength).first.total_value.should == 11
+	end
+	
+	it "a race should be able to update abilities through a character" do 
+		race = Race.create(:name => :elf)
+		race.effect << Effect.create(:name => "Racial Dex +2", :target_klass => :Ability, :target_instance => :Dexterity, :value => 2)
+		race.effect << Effect.create(:name => "Racial Int +2", :target_klass => :Ability, :target_instance => :Intelligence, :value => 2) 
+		@character.race = race
+		@character.ability.where(:name => :Dexterity).first.total_value.should == 12
+		@character.ability.where(:name => :Intelligence).first.total_value.should == 12
 	end
 	
 end

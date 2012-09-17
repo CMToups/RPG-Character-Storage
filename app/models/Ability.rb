@@ -1,6 +1,9 @@
 class Ability < ActiveRecord::Base
   belongs_to :character
   
+  has_many :effectable, :as => :effectee
+  has_many :effect, :through => :effectable
+  
   validates_uniqueness_of :name, :scope => :character_id 
   validates_inclusion_of :name, :in => [:Strength, :Dexterity, :Constitution, :Intelligence, :Wisdom, :Charisma] #Also add required to name
 
@@ -10,30 +13,21 @@ class Ability < ActiveRecord::Base
   
   def total_value
     temp_value = self.value
-    effects.each { |effect| temp_value += effect.value }
+    effect.each do |effect| 
+	    if effect.value
+	    	temp_value += effect.value 
+	    end
+    end
     temp_value
   end
   
   def modifier
     (value - 10) / 2
   end
-  
-  def effects
-    @effects
-  end
-  
-  def add_effect( effect )
-    @effects[effect.name] = effect
-  end
-  
-  def remove_effect( effect )
-    @effects.delete(effect)
-  end
  
 private
 
   def default_value
     self.value ||= 0
-    @effects = effects ||= {}
   end
 end

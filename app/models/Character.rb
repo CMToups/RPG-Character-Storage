@@ -29,11 +29,17 @@ class Character < ActiveRecord::Base
     validates_numericality_of :total_hit_points, :experience_points, :money 
     
     def add_effect(effect)
-    	klass = effect.applies_to_klass
-    	instance = effect.applies_to_instance
-    	klass.constantize.where(:name => instance, :character_id => self.id).first.add_effect()
+    	klass = effect.target_klass
+    	instance = effect.target_instance
+    	klass_instance = klass.to_s.constantize.where(:name => instance, :character_id => self.id).first
+    	Effectable.create(:effectee => klass_instance, :effect => effect, :character_id => self.id)
     end
-
+    
+  def race=(sType)
+     super
+     save
+     sType.effect.each {|e| add_effect(e)}
+  end
 private
 
   def default_values
