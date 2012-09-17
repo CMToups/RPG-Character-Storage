@@ -22,6 +22,10 @@ describe Character do
     should validate_numericality_of(:money)
   end
   
+  it "should save with valid attributes" do
+    @character.save.should == true
+  end
+  
   it "should have a default experience points" do
     @character.save
     @character.experience_points.should == 0
@@ -38,12 +42,12 @@ describe Character do
   end
   
 #player
-  it "should belong to a player" do
+  pending "should belong to a player" do
      should belong_to(:player)
    end
 
 #race   
-  it "should belong to a race" do
+  pending "should belong to a race" do
     should belong_to(:race)
   end
   
@@ -80,16 +84,17 @@ describe Character do
     should have_many(:ability).dependent(:destroy) 
   end
 
-  it "should save with valid attributes" do
-    @character.save.should == true
-  end
-
   it "can have abilities" do
     @character.should respond_to(:ability)
-    @character.ability.build(:name => :Strangth)
+    @character.ability.build(:name => :Strength)
     @character.save.should == true
   end
-
+  
+   it "abilities should save with character save" do
+    @character.save
+    throw Ability.where(:character_id => @character).first.should_not == nil
+  end
+  
   it "should have all six ablitites" do
     @character.save
 
@@ -99,17 +104,29 @@ describe Character do
       names << ability.name
     end
 
-    names.should == ["Strangth", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+    names.should == ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
   end
 
   it "should not have two of the same ablities" do
     @character.save
-    @character.ability.create(:name => :Strangth)
+    @character.ability.create(:name => :Strength)
     @character.ability.count.should == 6
   end
 
   it "should accept nested attributes for ability" do
     should accept_nested_attributes_for :ability
+  end
+  
+  it "should be able to access ability total value" do
+    @character.save
+    str = @character.ability.where(:name => :Strength).first
+    str.total_value.should == 10
+  end
+  
+  it "should be able to access ability effects" do 
+  	@character.save
+    str = @character.ability.where(:name => :Strength).first
+    str.effects.should == {}
   end
 
 #feat
@@ -140,13 +157,26 @@ describe Character do
   end
 
 #possesion  
-  it "should have many possessions and be destroy dependent" do
+  pending "should have many possessions and be destroy dependent" do
      should have_many(:possessions).dependent(:destroy) 
   end
 
 #spell  
-  it "should have many spells and be destroy dependent" do
+  pending "should have many spells and be destroy dependent" do
      should have_many(:spell).dependent(:destroy) 
   end
-  
+
+#effects
+
+	it "should be able to apply effects to abilities" do 
+		 str = @character.ability.where(:name => :Strength)
+		 str.total_value.should = 10
+		 effect = double("effect")
+		 effect.stub(:target_klass => :ability)
+		 effect.stub(:target_instance => :strength)
+		 effect.stub(:value => 1)
+		 @character.add_effect(effect)
+		 str.value.should = 11
+	end
+
 end
