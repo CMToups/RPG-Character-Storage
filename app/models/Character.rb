@@ -29,7 +29,9 @@ class Character < ActiveRecord::Base
     validates_numericality_of :total_hit_points, :experience_points, :money 
     
     def add_effect(effect)
-    	
+    	klass = effect.applies_to_klass
+    	instance = effect.applies_to_instance
+    	klass.constantize.where(:name => instance, :character_id => self.id).first.add_effect()
     end
 
 private

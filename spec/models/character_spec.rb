@@ -182,8 +182,28 @@ describe Character do
 
 #effects
 
-	pending "should be able to apply effects to abilities" do 
-		 @character.should_not be_valid
+	it "should be able to retreave effects" do 
+		@character.race = Race.create 
+		@character.race.effect.create 
+		@character.race.effect.first.should == Effect.find(@character.race.effect.first.id)
 	end
-
+	
+	it "should be able to identify an effect's target" do 
+		 @character.race = Race.create 
+		 @character.race.effect.create(:applies_to_klass => :Ability, :applies_to_instance => :Strength)
+		 @character.save 
+		 klass = @character.race.effect.first.applies_to_klass
+		 instance = @character.race.effect.first.applies_to_instance
+		 @character.ability.where(:name => :Strength).first.should == klass.constantize.where(:name => instance).first
+	end
+	
+	it "should be able to send an effect to its target" do 
+		@character.race = Race.create 
+		@character.race.effect.create(:name => :some_effect, :applies_to_klass => :Ability, :applies_to_instance => :Strength)
+		@character.save 
+		  
+		@character.add_effect(@character.race.effect.first)
+		@character.ability.where(:name => :Strength).first.effects.first.name.should == "some_effect"
+	end
+	
 end
