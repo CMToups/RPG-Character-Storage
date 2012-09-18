@@ -160,8 +160,12 @@ describe Character do
   end
   
 #class  
-  pending "should have many classes and be destroy dependent" do
-     should have_many(:character_class).dependent(:destroy) 
+  it "should have many classes and be destroy dependent" do
+     should have_many(:character_class).dependent(:destroy)
+  end
+  
+  it "should have many class types through classes" do 
+		should have_many(:character_class_type).through(:character_type) 
   end
 
 #possesion  
