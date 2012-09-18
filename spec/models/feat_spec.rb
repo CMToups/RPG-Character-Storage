@@ -5,6 +5,10 @@ describe Feat do
      should have_and_belong_to_many(:character)
   end
   
+  it "should have and belong to many role_types" do 
+     should have_and_belong_to_many(:role_type)
+  end  
+  
    it "should have valid name" do
     should allow_value("Power Overwhelming").for(:name) 
   end

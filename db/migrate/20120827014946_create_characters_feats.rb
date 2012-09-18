@@ -7,5 +7,7 @@ class CreateCharactersFeats < ActiveRecord::Migration
       
       t.timestamps
     end
+    
+    add_index(:characters_feats, [:character_id, :feat_id])
   end
 end

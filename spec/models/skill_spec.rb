@@ -17,5 +17,8 @@ describe Skill do
    it "should have valid rank" do
     should allow_value(4).for(:rank)
   end
-  
+
+  it "should have and belong to many role_types" do 
+     should have_and_belong_to_many(:role_type)
+  end  
 end

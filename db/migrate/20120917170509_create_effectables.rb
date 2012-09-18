@@ -8,5 +8,8 @@ class CreateEffectables < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index(:effectables, [:effect_id, :effectee_id])
+
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918013527) do
+ActiveRecord::Schema.define(:version => 20120918022704) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(:version => 20120918013527) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "characters_feats", ["character_id", "feat_id"], :name => "index_characters_feats_on_character_id_and_feat_id"
+
   create_table "effectables", :force => true do |t|
     t.integer  "effect_id"
     t.integer  "effectee_id"
@@ -71,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20120918013527) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  add_index "effectables", ["effect_id", "effectee_id"], :name => "index_effectables_on_effect_id_and_effectee_id"
 
   create_table "effects", :force => true do |t|
     t.string   "name"
@@ -91,6 +95,13 @@ ActiveRecord::Schema.define(:version => 20120918013527) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "feats_role_types", :id => false, :force => true do |t|
+    t.integer "feat_id",      :null => false
+    t.integer "role_type_id", :null => false
+  end
+
+  add_index "feats_role_types", ["feat_id", "role_type_id"], :name => "index_feats_role_types_on_feat_id_and_role_type_id"
+
   create_table "races", :force => true do |t|
     t.string   "name"
     t.integer  "speed"
@@ -101,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20120918013527) do
 
   create_table "role_types", :force => true do |t|
     t.string   "name"
-    t.integer  "character_class_id"
+    t.integer  "role_id"
     t.text     "description"
     t.text     "alignment"
     t.string   "hit_die"
@@ -111,12 +122,19 @@ ActiveRecord::Schema.define(:version => 20120918013527) do
     t.datetime "updated_at",           :null => false
   end
 
+  create_table "role_types_skills", :id => false, :force => true do |t|
+    t.integer "role_type_id", :null => false
+    t.integer "skill_id",     :null => false
+  end
+
+  add_index "role_types_skills", ["role_type_id", "skill_id"], :name => "index_role_types_skills_on_role_type_id_and_skill_id"
+
   create_table "roles", :force => true do |t|
     t.integer  "character_id"
-    t.integer  "character_class_type_id"
+    t.integer  "role_type_id"
     t.integer  "level"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "skill_types", :force => true do |t|

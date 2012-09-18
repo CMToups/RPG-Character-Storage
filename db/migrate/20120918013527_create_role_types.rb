@@ -2,7 +2,7 @@ class CreateRoleTypes < ActiveRecord::Migration
   def change
     create_table :role_types do |t|
       t.string :name
-      t.integer :character_class_id
+      t.integer :role_id
       t.text :description
       t.text :alignment
       t.string :hit_die
