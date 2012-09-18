@@ -167,6 +167,13 @@ describe Character do
   it "should have many role types through rolees" do 
 		should have_many(:role_type).through(:role) 
   end
+  
+  it "should be able to add a role to self" do 
+	  @character.save
+  	role_type = RoleType.create
+  	@character.role.create(:role_type_id => role_type)
+  	@character.role.first.should == Role.where(:role_type_id => role_type).first
+  end
 
 #possesion  
   pending "should have many possessions and be destroy dependent" do
@@ -180,10 +187,19 @@ describe Character do
 
 #effects
 
+	it "should have_may effectable" do 
+		should have_many(:effectable)
+	end
+	
+	it "should have_may effects through effectable" do 
+		should have_many(:effect).through(:effectable)
+	end
+	
 	it "should be able to retreave effects" do 
-		@character.race = Race.create 
-		@character.race.effect.create 
-		@character.race.effect.first.should == Effect.find(@character.race.effect.first.id)
+		race = Race.create
+		race.effect.create(:target_klass => :Ability, :target_instance => :Strength)
+		@character.race = race  
+		@character.effect.first.should == Effect.find(@character.race.effect.first.id)
 	end
 	
 	it "should be able to identify an effect's target" do 
@@ -204,10 +220,20 @@ describe Character do
 	end
 	
 	it "a race should be able to update abilities through a character" do 
-		race = Race.create(:name => :elf)
+		race = Race.create(:name => :Elf)
 		race.effect << Effect.create(:name => "Racial Dex +2", :target_klass => :Ability, :target_instance => :Dexterity, :value => 2)
 		race.effect << Effect.create(:name => "Racial Int +2", :target_klass => :Ability, :target_instance => :Intelligence, :value => 2) 
 		@character.race = race
+		@character.ability.where(:name => :Dexterity).first.total_value.should == 12
+		@character.ability.where(:name => :Intelligence).first.total_value.should == 12
+	end
+	
+	it "a role should be able to update abilities through a character" do 
+		@character.save
+		role_type = RoleType.create(:name => :Barbarian)
+		role_type.effect << Effect.create(:name => "Class Dex +2", :target_klass => :Ability, :target_instance => :Dexterity, :value => 2)
+		role_type.effect << Effect.create(:name => "Class Int +2", :target_klass => :Ability, :target_instance => :Intelligence, :value => 2) 
+		@character.role.create(:role_type => role_type)
 		@character.ability.where(:name => :Dexterity).first.total_value.should == 12
 		@character.ability.where(:name => :Intelligence).first.total_value.should == 12
 	end
@@ -220,5 +246,21 @@ describe Character do
 		Effectable.where(:character_id => @character.id).first.effect.should == effect
 	end
 	
-	pending "should be able to get a list of all effects tied to a character"
+	it "should be able to get a list of all effects tied to a character" do
+		@character.save 
+		race_effect = Effect.create(:name => "Racial Dex +2", :target_klass => :Ability, :target_instance => :Dexterity, :value => 2)
+		role_effect = Effect.create(:name => "Class Dex +2", :target_klass => :Ability, :target_instance => :Dexterity, :value => 2)
+		race = Race.create(:name => :Elf)
+		race.effect << race_effect
+		@character.race = race
+		
+		role_type = RoleType.create(:name => :Barbarian)
+		role_type.effect << role_effect
+		@character.role.create(:role_type => role_type)
+		
+		@character.save 
+		
+		@character.ability.where(:name => :Dexterity).first.total_value.should == 14
+		@character.effect.should == [race_effect,role_effect]
+	end
 end

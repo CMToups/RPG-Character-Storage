@@ -22,25 +22,30 @@ class Character < ActiveRecord::Base
   has_many :skill_type, :through => :skill
   #has_many :spell, :dependent => :destroy
 
+  has_many :effectable
+  has_many :effect, :through => :effectable
 
-    accepts_nested_attributes_for :ability, :background, :aspect, :feat, :skill
+  accepts_nested_attributes_for :ability, :background, :aspect, :feat, :skill
 
-    validates_presence_of :name
-    
-    validates_numericality_of :total_hit_points, :experience_points, :money 
-    
-    def add_effect(effect)
-    	klass = effect.target_klass
-    	instance = effect.target_instance
-    	klass_instance = klass.to_s.constantize.where(:name => instance, :character_id => self.id).first
-    	Effectable.create(:effectee => klass_instance, :effect => effect, :character_id => self.id)
-    end
+  validates_presence_of :name
+  
+  validates_numericality_of :total_hit_points, :experience_points, :money 
+  
+  def add_effect(effect)
+  	klass = effect.target_klass
+  	instance = effect.target_instance
+  	if klass && instance  
+	  	klass_instance = klass.to_s.constantize.where(:name => instance, :character_id => self.id).first 
+	  	Effectable.create(:effectee => klass_instance, :effect => effect, :character_id => self.id)
+  	end
+  end
     
   def race=(sType)
      super
      save
-     sType.effect.each {|e| add_effect(e)}
+     sType.effect.each {|e| add_effect(e)} if sType.effect
   end
+  
 private
 
   def default_values
