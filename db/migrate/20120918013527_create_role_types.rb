@@ -1,6 +1,6 @@
-class CreateCharacterClassTypes < ActiveRecord::Migration
+class CreateRoleTypes < ActiveRecord::Migration
   def change
-    create_table :character_class_types do |t|
+    create_table :role_types do |t|
       t.string :name
       t.integer :character_class_id
       t.text :description

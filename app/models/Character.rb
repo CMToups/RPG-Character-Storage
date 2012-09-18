@@ -11,8 +11,9 @@ class Character < ActiveRecord::Base
   has_one :background, :dependent => :destroy
   
   has_many :ability, :dependent => :destroy
-
-  #has_many :character_class, :dependent => :destroy
+  
+  has_many :role, :dependent => :destroy
+  has_many :role_type, :through => :role
 
   has_and_belongs_to_many :feat
 

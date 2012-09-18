@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120917233203) do
+ActiveRecord::Schema.define(:version => 20120918013527) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -42,26 +42,6 @@ ActiveRecord::Schema.define(:version => 20120917233203) do
     t.integer  "character_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-  end
-
-  create_table "character_class_types", :force => true do |t|
-    t.string   "name"
-    t.integer  "character_class_id"
-    t.text     "description"
-    t.text     "alignment"
-    t.string   "hit_die"
-    t.integer  "skill_rank_per_level"
-    t.text     "spells_per_day"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
-  create_table "character_classes", :force => true do |t|
-    t.integer  "character_id"
-    t.integer  "character_class_type_id"
-    t.integer  "level"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
   end
 
   create_table "characters", :force => true do |t|
@@ -117,6 +97,26 @@ ActiveRecord::Schema.define(:version => 20120917233203) do
     t.string   "vision"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "role_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "character_class_id"
+    t.text     "description"
+    t.text     "alignment"
+    t.string   "hit_die"
+    t.integer  "skill_rank_per_level"
+    t.text     "spells_per_day"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "character_class_type_id"
+    t.integer  "level"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "skill_types", :force => true do |t|

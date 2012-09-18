@@ -159,13 +159,13 @@ describe Character do
       should have_many(:skill_type).through(:skill)
   end
   
-#class  
-  it "should have many classes and be destroy dependent" do
-     should have_many(:character_class).dependent(:destroy)
+#role  
+  it "should have many roles and be destroy dependent" do
+     should have_many(:role).dependent(:destroy)
   end
   
-  it "should have many class types through classes" do 
-		should have_many(:character_class_type).through(:character_type) 
+  it "should have many role types through rolees" do 
+		should have_many(:role_type).through(:role) 
   end
 
 #possesion  
