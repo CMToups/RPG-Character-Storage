@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918022704) do
+ActiveRecord::Schema.define(:version => 20120918153808) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -152,6 +152,39 @@ ActiveRecord::Schema.define(:version => 20120918022704) do
     t.integer  "skill_type_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "spell_lists", :force => true do |t|
+    t.integer  "character_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "spell_lists_spell_types", :id => false, :force => true do |t|
+    t.integer "spell_list_id", :null => false
+    t.integer "spell_type_id", :null => false
+  end
+
+  add_index "spell_lists_spell_types", ["spell_list_id", "spell_type_id"], :name => "index_spell_lists_spell_types_on_spell_list_id_and_spell_type_id"
+
+  create_table "spell_types", :force => true do |t|
+    t.string   "name"
+    t.string   "school"
+    t.string   "descriptor"
+    t.text     "description"
+    t.integer  "cl_cleric"
+    t.integer  "cl_druid"
+    t.integer  "cl_paladin"
+    t.integer  "cl_sorcerer"
+    t.integer  "cl_ranger"
+    t.integer  "cl_wizard"
+    t.text     "components"
+    t.string   "casting_time"
+    t.string   "range"
+    t.string   "duration"
+    t.string   "saving_throw"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

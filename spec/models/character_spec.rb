@@ -181,8 +181,12 @@ describe Character do
   end
 
 #spell  
-  pending "should have many spells and be destroy dependent" do
-     should have_many(:spell).dependent(:destroy) 
+  it "should have one spell list and be destroy dependent" do
+     should have_one(:spell_list).dependent(:destroy) 
+  end
+  
+  it "should have many spell types through spell list" do
+     should have_many(:spell_type).through(:spell_list) 
   end
 
 #effects

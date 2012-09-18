@@ -20,7 +20,9 @@ class Character < ActiveRecord::Base
   #has_many :possession, :dependent => :destroy
   has_many :skill, :dependent => :destroy
   has_many :skill_type, :through => :skill
-  #has_many :spell, :dependent => :destroy
+  
+  has_one :spell_list, :dependent => :destroy
+  has_many :spell_type, :through => :spell_list
 
   has_many :effectable
   has_many :effect, :through => :effectable
