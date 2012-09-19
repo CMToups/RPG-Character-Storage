@@ -17,7 +17,8 @@ class Character < ActiveRecord::Base
 
   has_and_belongs_to_many :feat
 
-  #has_many :possession, :dependent => :destroy
+  has_and_belongs_to_many :possession
+  
   has_many :skill, :dependent => :destroy
   has_many :skill_type, :through => :skill
   

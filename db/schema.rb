@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918153808) do
+ActiveRecord::Schema.define(:version => 20120919012650) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(:version => 20120918153808) do
 
   add_index "characters_feats", ["character_id", "feat_id"], :name => "index_characters_feats_on_character_id_and_feat_id"
 
+  create_table "characters_possessions", :id => false, :force => true do |t|
+    t.integer "character_id",  :null => false
+    t.integer "possession_id", :null => false
+  end
+
+  add_index "characters_possessions", ["character_id", "possession_id"], :name => "index_characters_possessions_on_character_id_and_possession_id"
+
   create_table "effectables", :force => true do |t|
     t.integer  "effect_id"
     t.integer  "effectee_id"
@@ -101,6 +108,13 @@ ActiveRecord::Schema.define(:version => 20120918153808) do
   end
 
   add_index "feats_role_types", ["feat_id", "role_type_id"], :name => "index_feats_role_types_on_feat_id_and_role_type_id"
+
+  create_table "possessions", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "races", :force => true do |t|
     t.string   "name"
@@ -185,6 +199,33 @@ ActiveRecord::Schema.define(:version => 20120918153808) do
     t.string   "saving_throw"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "weapons", :force => true do |t|
+    t.string  "category"
+    t.string  "damage"
+    t.boolean "lethal"
+    t.string  "critical_range"
+    t.string  "critical_damage"
+    t.string  "range"
+    t.string  "magical_name"
+    t.integer "magic_value"
+  end
+
+  create_view "view_weapons", "CREATE VIEW \"view_weapons\" AS SELECT possessions.id, name,type,created_at,updated_at,category,damage,lethal,critical_range,critical_damage,range,magical_name,magic_value FROM possessions, weapons WHERE possessions.id = weapons.id", :force => true do |v|
+    v.column :id
+    v.column :name
+    v.column :type
+    v.column :created_at
+    v.column :updated_at
+    v.column :category
+    v.column :damage
+    v.column :lethal
+    v.column :critical_range
+    v.column :critical_damage
+    v.column :range
+    v.column :magical_name
+    v.column :magic_value
   end
 
 end

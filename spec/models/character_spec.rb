@@ -176,8 +176,8 @@ describe Character do
   end
 
 #possesion  
-  pending "should have many possessions and be destroy dependent" do
-     should have_many(:possessions).dependent(:destroy) 
+  it "should have and belong to many possessions and be destroy dependent" do
+     should have_and_belong_to_many(:possession) 
   end
 
 #spell  
@@ -267,4 +267,15 @@ describe Character do
 		@character.ability.where(:name => :Dexterity).first.total_value.should == 14
 		@character.effect.should == [race_effect,role_effect]
 	end
+	
+	it "should only have one copy of an effect" do 
+		@character.save
+		role_type = RoleType.create(:name => :Barbarian)
+		role_type.effect << Effect.create(:name => "Class Dex +2", :target_klass => :Ability, :target_instance => :Dexterity, :value => 2) 
+		@character.role.create(:role_type => role_type)
+		@character.ability.where(:name => :Dexterity).first.total_value.should == 12
+		@character.role.first.save
+		@character.ability.where(:name => :Dexterity).first.total_value.should == 12
+	end
+	
 end
