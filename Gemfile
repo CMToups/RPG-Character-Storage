@@ -6,6 +6,8 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'rails_sql_views', git: 'https://github.com/morgz/rails_sql_views.git'
+gem 'citier'
 
 
 # Gems used only for assets and not required
