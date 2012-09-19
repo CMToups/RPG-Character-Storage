@@ -15,5 +15,5 @@
 /tmp
 
 # Ignore os x files
-/*\.DS_Store
+.DS_Store
 
