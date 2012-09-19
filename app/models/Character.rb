@@ -3,7 +3,8 @@ class Character < ActiveRecord::Base
   before_validation :default_values
   before_create :stub_out_character 
   
-  #belongs_to :player
+  belongs_to :player
+  
   belongs_to :race
 
 

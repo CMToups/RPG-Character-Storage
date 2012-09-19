@@ -42,7 +42,7 @@ describe Character do
   end
   
 #player
-  pending "should belong to a player" do
+  it "should belong to a player" do
      should belong_to(:player)
    end
 

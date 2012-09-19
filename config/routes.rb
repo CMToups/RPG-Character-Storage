@@ -1,4 +1,6 @@
 RPGCharacterStorage::Application.routes.draw do
+  resources :players
+
   resources :characters
 
   root :to => "characters#index"

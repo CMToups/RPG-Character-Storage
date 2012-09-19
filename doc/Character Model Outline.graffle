@@ -2970,7 +2970,7 @@ modify cmd}</string>
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{49, 4}, {734, 874}}</string>
+		<string>{{-0, 4}, {1440, 874}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -2984,7 +2984,7 @@ modify cmd}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-12, -1}, {599, 735}}</string>
+		<string>{{-365, -1}, {1305, 735}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

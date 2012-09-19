@@ -1,21 +1,27 @@
 require 'spec_helper'
 
-describe Possession do
+describe Transport do
 
-  it "should be citier complyant" do 
-  	should respond_to(:type)
+	before(:each) do 
+		@transport = Transport.new 
+	end
+  
+  it "should be a sub type of possession" do 
+  	@transport.class.superclass.should == Possession 
   end
   
-  it "should have many effects" do 
-     should have_many(:effect).dependent(:destroy)
-  end   
-
-  it "should have and belong to characters" do 
-  	should have_and_belong_to_many(:character)
+  it "should have and belong to a character" do 
+  	@transport.character <<  Character.create(:name => :some_name)
+  	@transport.save
+  	Transport.count.should == 1
+  	Transport.first.character.first.should == Character.first
   end
-  
+
+#super  
   it "should have a valid name" do 
-  	should respond_to(:name)
+  	@transport.name = :some_name
+  	@transport.save 
+  	Transport.first.name.should == "some_name"
   end
   
   it "should have a valid monetary value" do 
@@ -40,6 +46,12 @@ describe Possession do
   
   it "should have a valid construction cost" do 
   	should respond_to(:construction_cost)
-  end
-    
+  end  
+  
+#class
+
+	it "should have a transportation method" do 
+		should respond_to(:transportation_method)
+	end
+
 end

@@ -1,21 +1,26 @@
 require 'spec_helper'
 
-describe Possession do
+describe Meterial do
 
-  it "should be citier complyant" do 
-  	should respond_to(:type)
+	before(:each) do 
+		@meterial = Meterial.new 
+	end
+  
+  it "should be a sub type of possession" do 
+  	@meterial.class.superclass.should == Possession 
   end
   
-  it "should have many effects" do 
-     should have_many(:effect).dependent(:destroy)
-  end   
-
-  it "should have and belong to characters" do 
-  	should have_and_belong_to_many(:character)
+  it "should have and belong to a character" do 
+  	@meterial.character <<  Character.create(:name => :some_name)
+  	@meterial.save
+  	Meterial.first.character.first.should == Character.first
   end
-  
+
+#super  
   it "should have a valid name" do 
-  	should respond_to(:name)
+  	@meterial.name = :some_name
+  	@meterial.save 
+  	Meterial.first.name.should == "some_name"
   end
   
   it "should have a valid monetary value" do 
@@ -40,6 +45,15 @@ describe Possession do
   
   it "should have a valid construction cost" do 
   	should respond_to(:construction_cost)
-  end
-    
+  end 
+
+#class
+
+	it "should have a valid duration" do 
+		should respond_to(:duration)
+	end
+	
+	it "should have a valid usage" do 
+		should respond_to(:usage)
+	end
 end

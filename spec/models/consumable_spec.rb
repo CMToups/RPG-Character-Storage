@@ -1,21 +1,25 @@
 require 'spec_helper'
 
-describe Possession do
-
-  it "should be citier complyant" do 
-  	should respond_to(:type)
+describe Consumable do
+	before(:each) do 
+		@consumable = Consumable.new 
+	end
+  
+  it "should be a sub type of possession" do 
+  	@consumable.class.superclass.should == Possession 
   end
   
-  it "should have many effects" do 
-     should have_many(:effect).dependent(:destroy)
-  end   
-
-  it "should have and belong to characters" do 
-  	should have_and_belong_to_many(:character)
+  it "should have and belong to a character" do 
+  	@consumable.character <<  Character.create(:name => :some_name)
+  	@consumable.save
+  	Consumable.first.character.first.should == Character.first
   end
-  
+
+#super  
   it "should have a valid name" do 
-  	should respond_to(:name)
+  	@consumable.name = :some_name
+  	@consumable.save 
+  	Consumable.first.name.should == "some_name"
   end
   
   it "should have a valid monetary value" do 
@@ -40,6 +44,12 @@ describe Possession do
   
   it "should have a valid construction cost" do 
   	should respond_to(:construction_cost)
-  end
-    
+  end  
+
+#class
+	
+	it "should have a valid expiration" do 
+		should respond_to(:expiration)
+	end
+	
 end

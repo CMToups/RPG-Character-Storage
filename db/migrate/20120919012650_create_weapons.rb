@@ -9,6 +9,7 @@ class CreateWeapons < ActiveRecord::Migration
       t.string :range
       t.string :magical_name
       t.integer :magic_value
+      t.string :weapon_type
     end
     
     create_citier_view(Weapon)
