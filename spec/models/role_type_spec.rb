@@ -2,6 +2,27 @@ require 'spec_helper'
 
 describe RoleType do
 
+  it "should have many roles" do 
+     should have_many(:role).dependent(:destroy)
+  end   
+  
+  it "should have many effects" do 
+     should have_many(:effect).dependent(:destroy)
+  end   
+  
+  it "should have and belong to many skills" do 
+     should have_and_belong_to_many(:skill)
+  end   
+
+  it "should have and belong to many feats" do 
+     should have_and_belong_to_many(:feat)
+  end     
+  
+  it "features should be an alias for effects" do 
+  	role_type = RoleType.new
+  	role_type.features.should == role_type.effect
+  end
+  
   it "should have a valid name" do
    should respond_to(:name)
   end
@@ -25,26 +46,5 @@ describe RoleType do
   it "should have a valid spells per day" do 
      should respond_to(:spells_per_day)
   end   
-  
-  it "should have many roles" do 
-     should have_many(:role).dependent(:destroy)
-  end   
-  
-  it "should have many effects" do 
-     should have_many(:effect).dependent(:destroy)
-  end   
-  
-  it "should have and belong to many skills" do 
-     should have_and_belong_to_many(:skill)
-  end   
-
-  it "should have and belong to many feats" do 
-     should have_and_belong_to_many(:feat)
-  end     
-  
-  it "features should be an alias for effects" do 
-  	role_type = RoleType.new
-  	role_type.features.should == role_type.effect
-  end
 
 end

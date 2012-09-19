@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(:version => 20120919012650) do
     t.integer "magic_value"
   end
 
-  create_view "view_weapons", "CREATE VIEW \"view_weapons\" AS SELECT possessions.id, name,type,created_at,updated_at,category,damage,lethal,critical_range,critical_damage,range,magical_name,magic_value FROM possessions, weapons WHERE possessions.id = weapons.id", :force => true do |v|
+  create_view "view_weapons", "SELECT possessions.id, name,type,created_at,updated_at,category,damage,lethal,critical_range,critical_damage,range,magical_name,magic_value FROM possessions, weapons WHERE possessions.id = weapons.id", :force => true do |v|
     v.column :id
     v.column :name
     v.column :type
