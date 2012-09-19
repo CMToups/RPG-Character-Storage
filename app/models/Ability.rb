@@ -2,7 +2,7 @@ class Ability < ActiveRecord::Base
   belongs_to :character
   
   has_many :effectable, :as => :effectee
-  has_many :effect, :through => :effectable
+  has_many :effect, :through => :effectable, :uniq => true
   
   validates_uniqueness_of :name, :scope => :character_id 
   validates_inclusion_of :name, :in => [:Strength, :Dexterity, :Constitution, :Intelligence, :Wisdom, :Charisma] #Also add required to name

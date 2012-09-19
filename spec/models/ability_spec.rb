@@ -52,14 +52,23 @@ describe Ability do
     strength.total_value.should == 10
   end
   
+		it "should have many effectables" do
+			should have_many(:effectable)
+		end
+		
+		it "should have many effects" do
+			should have_many(:effect).through(:effectable)
+		end
+  
   describe " # Effects" do
     
-    it "should have many effectables" do
-      should have_many(:effectable)
-    end
-    
-    it "should have many effects" do
-      should have_many(:effect).through(:effectable)
+    it "should be unique" do 
+    	strength = Ability.create(:name => :Strength)
+    	effect = Effect.create(:name => :some_name)
+      strength.effect << effect
+      strength.effect.count.should == 1
+      strength.effect << effect
+      strength.effect.count.should == 1
     end
     
     it "add_effect should add effect to effectable's relationship" do
