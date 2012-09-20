@@ -5,11 +5,15 @@ class Ability < ActiveRecord::Base
   has_many :effect, :through => :effectable, :uniq => true
   
   validates_uniqueness_of :name, :scope => :character_id 
-  validates_inclusion_of :name, :in => [:Strength, :Dexterity, :Constitution, :Intelligence, :Wisdom, :Charisma] #Also add required to name
+  validates_inclusion_of :name, :in => ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"] #Also add required to name
 
   validates_numericality_of :value
   
   before_validation :default_value
+  
+  attr_accessible :name, :value
+  
+  
   
   def total_value
     temp_value = self.value
@@ -22,7 +26,7 @@ class Ability < ActiveRecord::Base
   end
   
   def modifier
-    (value - 10) / 2
+    (total_value - 10) / 2
   end
  
 private
