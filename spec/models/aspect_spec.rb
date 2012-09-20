@@ -7,7 +7,9 @@ describe Aspect do
  end
  
   it "should have valid size" do
-   should allow_value(60).for(:size) 
+   should allow_value("M").for(:size)
+   a = Aspect.create(:size => "M")
+   a.size.should == "M" 
  end
 
   it "should have valid gender" do

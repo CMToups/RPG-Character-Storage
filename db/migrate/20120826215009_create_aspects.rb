@@ -1,7 +1,7 @@
 class CreateAspects < ActiveRecord::Migration
   def change
     create_table :aspects do |t|
-      t.integer :size
+      t.string :size
       t.string :gender
       t.integer :age
       t.integer :height
