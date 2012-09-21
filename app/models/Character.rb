@@ -11,9 +11,9 @@ class Character < ActiveRecord::Base
   has_one :aspect, :dependent => :destroy
   has_one :background, :dependent => :destroy
   
-  has_many :ability, :dependent => :destroy
+  has_many :ability, :autosave => true, :dependent => :destroy
   
-  has_many :role, :dependent => :destroy
+  has_many :role, :dependent => :destroy #:include => consider this as a replacment for has_many :through
   has_many :role_type, :through => :role
 
   has_and_belongs_to_many :feat
@@ -26,14 +26,16 @@ class Character < ActiveRecord::Base
   has_one :spell_list, :dependent => :destroy
   has_many :spell_type, :through => :spell_list
 
-  has_many :effectable
+  has_many :effectable, :after_add => :add_effect
   has_many :effect, :through => :effectable
 
-  accepts_nested_attributes_for :ability, :background, :aspect, :feat, :skill
+  accepts_nested_attributes_for :ability, :background, :aspect, :feat, :skill, :allow_destroy => true
 
   validates_presence_of :name
   
   validates_numericality_of :total_hit_points, :experience_points, :money 
+  
+  attr_accessible :name, :experience_points, :total_hit_points, :money, :ability_attributes, :background_attributes, :aspect_attributes, :feat_attributes, :skill_attributes 
   
   def add_effect(effect)
   	klass = effect.target_klass
@@ -62,15 +64,16 @@ private
   	add_abilities
   	add_background
   	add_aspect
+  	true
   end
 
   def add_abilities
-    self.ability.build(:name => :Strength, :value => 10)
-    self.ability.build(:name => :Dexterity, :value => 10)
-    self.ability.build(:name => :Constitution, :value => 10)
-    self.ability.build(:name => :Intelligence, :value => 10)
-    self.ability.build(:name => :Wisdom, :value => 10)
-    self.ability.build(:name => :Charisma, :value => 10)
+    self.ability.build(:name => "Strength", :value => 10)
+    self.ability.build(:name => "Dexterity", :value => 10)
+    self.ability.build(:name => "Constitution", :value => 10)
+    self.ability.build(:name => "Intelligence", :value => 10)
+    self.ability.build(:name => "Wisdom", :value => 10)
+    self.ability.build(:name => "Charisma", :value => 10)
   end
 
   def add_background

@@ -73,6 +73,14 @@ describe Character do
   it "should accept nested attributes for aspect" do
     should accept_nested_attributes_for :aspect
   end
+  
+  it "should trully accept nested attributes for aspect" do 
+  	#rails c was not showing a proper update -- don't forget to save! keep test as a backup...
+  	@character.aspect = Aspect.create(:deity => :KeaDe)
+  	@character.aspect.deity.should == :KeaDe
+  	@character.aspect.deity = :Keade
+  	@character.aspect.deity.should == :Keade
+  end
 
   it "should have an aspect when saved" do
     @character.save
@@ -97,10 +105,14 @@ describe Character do
   it "should have many abilities and be destroy dependent" do
     should have_many(:ability).dependent(:destroy) 
   end
+  
+  it "should accept nested attributes for ability" do
+    should accept_nested_attributes_for :ability
+  end
 
   it "can have abilities" do
     @character.should respond_to(:ability)
-    @character.ability.build(:name => :Strength)
+    @character.ability.build(:name => "Strength")
     @character.save.should == true
   end
   
@@ -121,14 +133,10 @@ describe Character do
     names.should == ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
   end
 
-  it "should not have two of the same ablities" do
+  it "should not have two of the same abilities" do
     @character.save
     @character.ability.create(:name => :Strength)
     @character.ability.count.should == 6
-  end
-
-  it "should accept nested attributes for ability" do
-    should accept_nested_attributes_for :ability
   end
   
   it "should be able to access an ability's total value" do
@@ -137,6 +145,13 @@ describe Character do
     str.total_value.should == 10
   end
 
+  it "should be able to update abilities" do 
+  	@character.save
+    str = @character.ability.where(:name => "Strength").first
+    str.value = 12
+    str.save
+    @character.ability.where(:name => "Strength").first.value.should == 12
+  end
 #feat
   it "should have and belong to many feats" do
      should have_and_belong_to_many(:feat)
@@ -157,6 +172,16 @@ describe Character do
   
   it "should have many skill types through skill" do
       should have_many(:skill_type).through(:skill)
+  end
+  
+  it "should only have one kind of skill, skill_type must be unique" do 
+  	@character.save
+  	SkillType.create(:name => :climb, :description => "How one climbs", :ability_type => :Strenght) 
+  	@character.skill.create(:skill_type_id => SkillType.first.id) 
+  	@character.skill.count.should == 1
+  	@character.skill.create(:skill_type_id => SkillType.first.id) 
+  	@character.save 
+  	@character.skill.count.should == 1
   end
   
 #role  
