@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20120919155428) do
   end
 
   create_table "aspects", :force => true do |t|
-    t.integer  "size"
+    t.string   "size"
     t.string   "gender"
     t.integer  "age"
     t.integer  "height"

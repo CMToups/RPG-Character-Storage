@@ -14,7 +14,7 @@ describe SkillType do
   end
   
    it "should have valid ability_type" do
-    should allow_value(:Strangth).for(:ability_type) 
+    should allow_value(:Strength).for(:ability_type) 
   end
   
 end

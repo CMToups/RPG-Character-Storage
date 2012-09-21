@@ -1,9 +1,12 @@
 RPGCharacterStorage::Application.routes.draw do
+
   resources :players
 
   resources :characters
 
-  root :to => "characters#index"
+  match "/home", :to => "home#index" 
+  
+  root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

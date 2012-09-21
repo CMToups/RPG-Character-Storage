@@ -49,9 +49,14 @@
 
 <p>
   <b>Skills:</b><br \>
-	<% @character.skill.all do |skill| %>
+	<% @character.skill.each do |skill| %>
 	  <% skill_type = skill.skill_type %>
-	  Name:	<%= skill_type.name %> Rank: <%= skill.rank %><br \>
+	  Name:	<%= skill_type.name %> <br \>
+	  Total: <%= skill.total %><br \>
+	  Rank: <%= skill.rank %><br \>
+	  <!% skill.effect.each do |effect| %>
+	  	Misc: <!%= effect.value %><br \>
+	  <!% end %>
 	  Ability Type: <%= skill_type.ability_type %><br \>
 	  Description: <%= skill_type.description %><br \>
 	<% end %>
@@ -59,12 +64,39 @@
 
 <p>
   <b>Feats:</b><br \>
-	<% @character.feat.all do |feat| %>
+	<% @character.feat.each do |feat| %>
 	  Name:	<%= feat.name %><br \>
 	  Description: <%= feat.description %><br \>
 	  Prerequisites: <%= feat.prerequisites %><br \>
 	<% end %>
 </p>
 
+<p>
+  <b>Possessions:</b><br \>
+	<% @character.possession.all do |possession| %>
+	  Name:	<%= possession.name %><br \>
+	<% end %>
+</p>
+
+<p>
+  <b>Race:</b><br \>
+	  Name:	<%= @character.race.name if @character.race %><br \>
+</p>
+
+<p>
+  <b>Classes:</b><br \>
+	<% @character.role.all do |role| %>
+	  Name:	<%= role.role_type.name %><br \>
+	<% end %>
+</p>
+
+<p>
+  <b>Spell List:</b><br \>
+  <% if @character.spell_list %>
+		<% @character.spell_list.spell_type.all do |spell| %>
+		  Name:	<%= spell.name %><br \>
+		<% end %>
+	<% end %>
+</p>
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>

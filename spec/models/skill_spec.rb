@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe Skill do
+  before(:each) do 
+  	@skill = Skill.create(
+  		:character_id => Character.create(:name => :some_name), 
+  		:skill_type => SkillType.create(:name => :climb, :ability_type => "Strength"))
+  end
   
   it "should belong to a character" do
     should belong_to(:character)
@@ -14,11 +19,37 @@ describe Skill do
     should accept_nested_attributes_for(:skill_type)
   end
 
-   it "should have valid rank" do
+  it "should have and belong to many role_types" do 
+     should have_and_belong_to_many(:role_type)
+  end
+  
+  it "should not save without a character" do 
+    Skill.new(:skill_type => SkillType.create).should_not be_valid
+  end
+  
+  it "should not save without a skill type" do
+  	Skill.new(:character => Character.create(:name => :some_name)).should_not be_valid
+  end
+  
+  it "should have valid rank" do
     should allow_value(4).for(:rank)
   end
 
-  it "should have and belong to many role_types" do 
-     should have_and_belong_to_many(:role_type)
+   it "should have valid total" do
+    @skill.rank = 1
+    @skill.save
+    Skill.first.total.should == 1
+  end
+  
+	it "should update total with its character's ability modifier" do
+   	@skill.rank = 1
+    @skill.save
+    Skill.first.total.should == 1
+    str = @skill.character.ability.where(:name => :Strength).first
+    str.value = 12
+    str.save
+    @skill.character.ability.where(:name => :Strength).first.value.should == 12
+    Skill.first.total.should == 2
   end  
+  
 end

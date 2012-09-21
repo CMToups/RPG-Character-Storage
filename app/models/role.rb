@@ -2,13 +2,13 @@ class Role < ActiveRecord::Base
 	belongs_to :character
 	belongs_to :role_type
 	
-	after_save :send_effects_to_character
-	
 	validates_presence_of :character, :role_type
 	
-	private 
+	before_create :add_effects
 	
-  def send_effects_to_character
+
+	def add_effects
      self.role_type.effect.each {|e| self.character.add_effect(e)}
   end
+	
 end
