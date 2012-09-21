@@ -1,6 +1,6 @@
-class CreateSpellTypes < ActiveRecord::Migration
+class CreateSpells < ActiveRecord::Migration
   def change
-    create_table :spell_types do |t|
+    create_table :spells do |t|
       t.string :name
       t.string :school
       t.string :descriptor

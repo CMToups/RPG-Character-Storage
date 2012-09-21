@@ -24,8 +24,8 @@ class Character < ActiveRecord::Base
   has_many :skill, :dependent => :destroy
   has_many :skill_type, :through => :skill
   
-  has_one :spell_list, :dependent => :destroy
-  has_many :spell_type, :through => :spell_list
+  has_many :spell_slot, :dependent => :destroy
+  has_many :spell, :through => :spell_slot
 
   has_many :effectable, :after_add => :add_effect
   has_many :effect, :through => :effectable
@@ -65,7 +65,6 @@ private
   	add_abilities
   	add_background
   	add_aspect
-  	add_spell_list
   	true
   end
 
@@ -86,9 +85,4 @@ private
     self.build_aspect
   end
   
-  def add_spell_list
-  	self.build_spell_list
-  end
-  
-
 end

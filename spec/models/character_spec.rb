@@ -218,18 +218,14 @@ describe Character do
   end
 
 #spell  
-  it "should have one spell list and be destroy dependent" do
-     should have_one(:spell_list).dependent(:destroy) 
+  it "should have many spell slots and be destroy dependent" do
+     should have_many(:spell_slot).dependent(:destroy) 
   end
   
-  it "should have many spell types through spell list" do
-     should have_many(:spell_type).through(:spell_list) 
+  it "should have many spells through spell slots" do
+     should have_many(:spell).through(:spell_slot) 
   end
-  
-  it "should build spell list on create" do
-  	@character.save 
-  	@character.spell_list.should_not == nil
-  end
+
 
 #effects
 

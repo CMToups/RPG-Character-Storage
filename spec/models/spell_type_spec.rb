@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe SpellType do
-  it "should have and belong to many spell lists" do 
-  	should have_and_belong_to_many(:spell_list)
+describe Spell do
+  it "should have many spell slots" do 
+  	should have_many(:spell_slot)
   end
   
   it "should have a valid name" do 

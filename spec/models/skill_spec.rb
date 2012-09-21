@@ -28,7 +28,7 @@ describe Skill do
   end
   
   it "should have many effects through effectables" do
-  	shoul have_many(:effectable).through(:effect)
+  	should have_many(:effectable).through(:effect)
   end
   
   it "should not save without a character" do 
@@ -59,5 +59,39 @@ describe Skill do
     @skill.character.ability.where(:name => :Strength).first.value.should == 12
     Skill.first.total.should == 2
   end  
+
+  describe " # Effects" do
+    before(:each) do 
+    	@effect = Effect.create(:name => :some_name, :target_klass => "Skill", :target_instance => "climb", :value => 1 )
+    end
+    it "should be added when an skill effectable is created" do 
+    	@skill.character.add_effect(@effect)
+    	@skill.effect.count.should == 1
+    end
+    
+    it "values should be accessable" do
+      @skill.character.add_effect(@effect)
+      @skill.effect.first.name.should == "some_name"
+    end
+    
+    it "should be unique" do 
+    	@skill.character.add_effect(@effect)
+    	@skill.effect.count.should == 1
+      @skill.character.add_effect(@effect)
+      @skill.effect.count.should == 1
+    end
+    
+    it "should be removed when the assocaited effectable is removed." do
+      @skill.character.add_effect(@effect) 
+      @skill.effectable.first.delete
+      @skill.effect.count.should == 0
+    end
+    
+    it "should update total" do 
+    	@skill.character.add_effect(@effect)
+      @skill.total_value.should == 11
+    end
+    
+  end
   
 end

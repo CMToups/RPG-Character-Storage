@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921020416) do
+ActiveRecord::Schema.define(:version => 20120921024601) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -212,12 +212,6 @@ ActiveRecord::Schema.define(:version => 20120921020416) do
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "spell_lists", :force => true do |t|
-    t.integer  "character_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "spell_lists_spell_types", :id => false, :force => true do |t|
     t.integer "spell_list_id", :null => false
     t.integer "spell_type_id", :null => false
@@ -225,7 +219,14 @@ ActiveRecord::Schema.define(:version => 20120921020416) do
 
   add_index "spell_lists_spell_types", ["spell_list_id", "spell_type_id"], :name => "index_spell_lists_spell_types_on_spell_list_id_and_spell_type_id"
 
-  create_table "spell_types", :force => true do |t|
+  create_table "spell_slots", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "spell_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "spells", :force => true do |t|
     t.string   "name"
     t.string   "school"
     t.string   "descriptor"
