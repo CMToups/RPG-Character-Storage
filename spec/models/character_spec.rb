@@ -153,12 +153,24 @@ describe Character do
     @character.ability.where(:name => "Strength").first.value.should == 12
   end
 #feat
-  it "should have and belong to many feats" do
-     should have_and_belong_to_many(:feat)
+	
+	it "should have many achievements" do 
+		should have_many(:achievement)
+	end
+	
+  it "should have many feats through achievements" do
+     should have_many(:feat).through(:achievement)
   end
   
   it "should accept nested attributes for feat" do
     should accept_nested_attributes_for(:feat)
+  end
+  
+  it "Character.feat << feat.create should work" do 
+  	feat = Feat.create()
+  	@character.feat << feat
+  	@character.save!
+  	@character.feat.count.should == 1
   end
   
 #skill & skill_type
@@ -212,6 +224,11 @@ describe Character do
   
   it "should have many spell types through spell list" do
      should have_many(:spell_type).through(:spell_list) 
+  end
+  
+  it "should build spell list on create" do
+  	@character.save 
+  	@character.spell_list.should_not == nil
   end
 
 #effects

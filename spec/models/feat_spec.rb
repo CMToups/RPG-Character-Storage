@@ -1,8 +1,13 @@
 require 'spec_helper'
 
 describe Feat do
-  it "should have and belong to many characters" do
-     should have_and_belong_to_many(:character)
+	
+	it "should have many achievements" do 
+		should have_many(:achievement)
+	end
+
+  it "should have many characters through achievements" do
+     should have_many(:character).through(:achievement)
   end
   
   it "should have and belong to many role_types" do 

@@ -23,6 +23,14 @@ describe Skill do
      should have_and_belong_to_many(:role_type)
   end
   
+  it "should have many effectables" do 
+  	should have_many(:effectable)
+  end
+  
+  it "should have many effects through effectables" do
+  	shoul have_many(:effectable).through(:effect)
+  end
+  
   it "should not save without a character" do 
     Skill.new(:skill_type => SkillType.create).should_not be_valid
   end

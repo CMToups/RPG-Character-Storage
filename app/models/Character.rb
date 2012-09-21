@@ -16,7 +16,8 @@ class Character < ActiveRecord::Base
   has_many :role, :dependent => :destroy #:include => consider this as a replacment for has_many :through
   has_many :role_type, :through => :role
 
-  has_and_belongs_to_many :feat
+  has_many :achievement
+  has_many :feat, :through => :achievement
 
   has_and_belongs_to_many :possession
   
@@ -64,6 +65,7 @@ private
   	add_abilities
   	add_background
   	add_aspect
+  	add_spell_list
   	true
   end
 
@@ -82,6 +84,10 @@ private
 
   def add_aspect
     self.build_aspect
+  end
+  
+  def add_spell_list
+  	self.build_spell_list
   end
   
 

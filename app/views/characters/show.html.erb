@@ -85,7 +85,7 @@
 
 <p>
   <b>Classes:</b><br \>
-	<% @character.role.all do |role| %>
+	<% @character.role.each do |role| %>
 	  Name:	<%= role.role_type.name %><br \>
 	<% end %>
 </p>

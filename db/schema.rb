@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919155428) do
+ActiveRecord::Schema.define(:version => 20120921020416) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
     t.integer  "value"
     t.integer  "character_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "achievements", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "feat_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -69,15 +76,6 @@ ActiveRecord::Schema.define(:version => 20120919155428) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
-
-  create_table "characters_feats", :force => true do |t|
-    t.integer  "character_id"
-    t.integer  "feat_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "characters_feats", ["character_id", "feat_id"], :name => "index_characters_feats_on_character_id_and_feat_id"
 
   create_table "characters_possessions", :id => false, :force => true do |t|
     t.integer "character_id",  :null => false
