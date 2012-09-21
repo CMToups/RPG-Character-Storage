@@ -6,6 +6,8 @@ RPGCharacterStorage::Application.routes.draw do
 
   match "/home", :to => "home#index" 
   
+  match "/reference", :to => "home#refernce"
+  
   root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
