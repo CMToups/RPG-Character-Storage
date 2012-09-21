@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe Skill do
   before(:each) do 
-  	@skill = Skill.create(
-  		:character_id => Character.create(:name => :some_name), 
-  		:skill_type => SkillType.create(:name => :climb, :ability_type => "Strength"))
+  	@skill = Character.create(:name => :some_name).skill.build(:skill_type => SkillType.create(:name => :climb, :ability_type => "Strength"))
   end
   
   it "should belong to a character" do
@@ -28,7 +26,7 @@ describe Skill do
   end
   
   it "should have many effects through effectables" do
-  	should have_many(:effectable).through(:effect)
+  	should have_many(:effect).through(:effectable)
   end
   
   it "should not save without a character" do 
@@ -62,6 +60,7 @@ describe Skill do
 
   describe " # Effects" do
     before(:each) do 
+    	@skill.save
     	@effect = Effect.create(:name => :some_name, :target_klass => "Skill", :target_instance => "climb", :value => 1 )
     end
     it "should be added when an skill effectable is created" do 
@@ -89,7 +88,7 @@ describe Skill do
     
     it "should update total" do 
     	@skill.character.add_effect(@effect)
-      @skill.total_value.should == 11
+      @skill.total.should == 1
     end
     
   end

@@ -1,7 +1,13 @@
 class Skill < ActiveRecord::Base
   belongs_to :character
   belongs_to :skill_type
+  
+  has_many :effectable, :as => :effectee
+  has_many :effect, :through => :effectable, :uniq => true
+	
 	has_and_belongs_to_many :role_type
+  
+  
   accepts_nested_attributes_for :skill_type
   
   validates_presence_of :character_id, :skill_type_id
@@ -12,6 +18,11 @@ class Skill < ActiveRecord::Base
   def total 
   	total = self.rank
   	total += self.character.ability.where(:name => self.skill_type.ability_type).first.modifier
+  	effect.each do |effect| 
+	    if effect.value
+	    	total += effect.value 
+	    end
+    end
   	total
   end
   

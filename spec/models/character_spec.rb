@@ -256,15 +256,15 @@ describe Character do
 	
 	it "should be able to send an effect to its target" do 
 		@character.save 
-		effect = Effect.create(:name => "some_effect", :target_klass => :Ability, :target_instance => :Strength, :value => 1)
+		effect = Effect.create(:name => "some_effect", :target_klass => "Ability", :target_instance => :Strength, :value => 1)
 		@character.add_effect(effect)
 		@character.ability.where(:name => :Strength).first.total_value.should == 11
 	end
 	
 	it "a race should be able to update abilities through a character" do 
 		race = Race.create(:name => :Elf)
-		race.effect << Effect.create(:name => "Racial Dex +2", :target_klass => :Ability, :target_instance => :Dexterity, :value => 2)
-		race.effect << Effect.create(:name => "Racial Int +2", :target_klass => :Ability, :target_instance => :Intelligence, :value => 2) 
+		race.effect << Effect.create(:name => "Racial Dex +2", :target_klass => "Ability", :target_instance => :Dexterity, :value => 2)
+		race.effect << Effect.create(:name => "Racial Int +2", :target_klass => "Ability", :target_instance => :Intelligence, :value => 2) 
 		@character.race = race
 		@character.ability.where(:name => :Dexterity).first.total_value.should == 12
 		@character.ability.where(:name => :Intelligence).first.total_value.should == 12
@@ -273,16 +273,25 @@ describe Character do
 	it "a role should be able to update abilities through a character" do 
 		@character.save
 		role_type = RoleType.create(:name => :Barbarian)
-		role_type.effect << Effect.create(:name => "Class Dex +2", :target_klass => :Ability, :target_instance => :Dexterity, :value => 2)
-		role_type.effect << Effect.create(:name => "Class Int +2", :target_klass => :Ability, :target_instance => :Intelligence, :value => 2) 
+		role_type.effect << Effect.create(:name => "Class Dex +2", :target_klass => "Ability", :target_instance => :Dexterity, :value => 2)
+		role_type.effect << Effect.create(:name => "Class Int +2", :target_klass => "Ability", :target_instance => :Intelligence, :value => 2) 
 		@character.role.create(:role_type => role_type)
 		@character.ability.where(:name => :Dexterity).first.total_value.should == 12
 		@character.ability.where(:name => :Intelligence).first.total_value.should == 12
 	end
 	
+	it "add effect should work for collections class" do 
+		@character.save
+		@character.skill.build(:skill_type_id => SkillType.create(:name => "Climb")) 
+		effect = Effect.create(:name => "some_effect", :target_klass => "Skill", :target_instance => "Climb", :value => 1)
+		@character.save
+		@character.add_effect(effect)
+		Effectable.where(:character_id => @character.id).first.effect.should == effect
+	end
+		
 	it "add effect should add character id to the effectable table" do 
 			@character.save 
-		effect = Effect.create(:name => "some_effect", :target_klass => :Ability, :target_instance => :Strength, :value => 1)
+		effect = Effect.create(:name => "some_effect", :target_klass => "Ability", :target_instance => :Strength, :value => 1)
 		@character.add_effect(effect)
 		@character.ability.where(:name => :Strength).first.total_value.should == 11
 		Effectable.where(:character_id => @character.id).first.effect.should == effect

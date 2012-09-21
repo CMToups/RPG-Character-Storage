@@ -41,9 +41,14 @@ class Character < ActiveRecord::Base
   def add_effect(effect)
   	klass = effect.target_klass
   	instance = effect.target_instance
-  	if klass && instance  
-	  	klass_instance = klass.to_s.constantize.where(:name => instance, :character_id => self.id).first 
-	  	Effectable.create(:effectee => klass_instance, :effect => effect, :character_id => self.id)
+  	if klass && instance
+  		if klass == "Ability"   
+	  		klass_instance = klass.to_s.constantize.where(:name => instance, :character_id => self.id).first 
+	  	elsif klass == "Skill"
+	  		skill_type = SkillType.where(:name => instance).first
+	  		klass_instance = Skill.where(:skill_type_id => skill_type.id, :character_id => self.id).first
+	  	end
+	  	Effectable.create(:effectee => klass_instance, :effect => effect, :character_id => self.id) if klass_instance
   	end
   end
     
