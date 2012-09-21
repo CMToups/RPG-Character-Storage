@@ -73,7 +73,8 @@
 
 <p>
   <b>Possessions:</b><br \>
-	<% @character.possession.all do |possession| %>
+	<% @character.possession.each do |possession| %>
+		Type: <%= possession.type %><br \>
 	  Name:	<%= possession.name %><br \>
 	<% end %>
 </p>
