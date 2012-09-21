@@ -92,10 +92,8 @@
 
 <p>
   <b>Spell List:</b><br \>
-  <% if @character.spell_list %>
-		<% @character.spell_list.spell_type.all do |spell| %>
+  <% @character.spell.each do |spell| %>
 		  Name:	<%= spell.name %><br \>
-		<% end %>
 	<% end %>
 </p>
 <%= link_to 'Edit', edit_character_path(@character) %> |
