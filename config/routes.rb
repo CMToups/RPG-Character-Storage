@@ -7,6 +7,17 @@ RPGCharacterStorage::Application.routes.draw do
   resources :role_types
   
   resources :races
+
+	resources :skills
+	
+	resources :feats
+	
+	resources :spells
+	
+	resources :possessions
+	
+	resources :effects
+	  
   
   match "/home", :to => "home#index" 
   
