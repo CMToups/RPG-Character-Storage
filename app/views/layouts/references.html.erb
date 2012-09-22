@@ -48,7 +48,7 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Player", players_path  %></li>
-              <li><%= link_to "Characters", characters_path  %></li>
+              <li><%= link_to "Character", characters_path  %></li>
               <li><%= link_to "Reference", reference_path  %></li>
               <li class="dropdown">
 						    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -65,16 +65,24 @@
         </div>
       </div>
     </div>
-
+    <header class="jumbotron subhead" id="overview">
+		  <div class="container">
+		    <h1>Reference Material</h1>
+		    <p class="lead">This list all the available game content.</p>
+		  </div>
+		</header>
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span5 offset4">
+    	  <div class="span2">
+		      <%= render "reference_nav"  %>
+		    </div>
+        <div class="span10">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->
 
-      <footer>      
+      <footer>
         <p>&copy; Company 2012</p>
       </footer>
 
