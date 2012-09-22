@@ -1,0 +1,98 @@
+<%= form_for @spell, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :school, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :school, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :descriptor, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :descriptor, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cl_cleric, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cl_cleric, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cl_druid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cl_druid, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cl_paladin, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cl_paladin, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cl_sorcerer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cl_sorcerer, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cl_ranger, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cl_ranger, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cl_wizard, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cl_wizard, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :components, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :components, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :casting_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :casting_time, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :range, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :range, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :duration, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :duration, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :saving_throw, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :saving_throw, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                spells_path, :class => 'btn' %>
+  </div>
+<% end %>

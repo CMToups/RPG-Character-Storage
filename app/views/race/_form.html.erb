@@ -1,0 +1,26 @@
+<%= form_for @race, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :speed, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :speed, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vision, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vision, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                race_path, :class => 'btn' %>
+  </div>
+<% end %>

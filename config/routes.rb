@@ -8,7 +8,7 @@ RPGCharacterStorage::Application.routes.draw do
   
   resources :races
 
-	resources :skills
+	resources :skill_types
 	
 	resources :feats
 	

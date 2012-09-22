@@ -1,0 +1,56 @@
+<%= form_for @possession, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :construction_cost, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :construction_cost, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :construction_requirements, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :construction_requirements, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :construction_caster_level, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :construction_caster_level, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :weight, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :weight, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :monetary_value, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :monetary_value, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :type, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                possessions_path, :class => 'btn' %>
+  </div>
+<% end %>

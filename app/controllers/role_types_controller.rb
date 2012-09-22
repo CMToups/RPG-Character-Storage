@@ -1,6 +1,5 @@
 class RoleTypesController < ApplicationController
-  # GET /RoleTypes
-  # GET /RoleTypes.json
+
   def index
     @role_types = RoleType.all
 
@@ -10,8 +9,6 @@ class RoleTypesController < ApplicationController
     end
   end
 
-  # GET /RoleTypes/1
-  # GET /RoleTypes/1.json
   def show
     @role_type = RoleType.find(params[:id])
 
@@ -21,8 +18,6 @@ class RoleTypesController < ApplicationController
     end
   end
 
-  # GET /RoleTypes/new
-  # GET /RoleTypes/new.json
   def new
     @role_type = RoleType.new
 
@@ -32,13 +27,10 @@ class RoleTypesController < ApplicationController
     end
   end
 
-  # GET /RoleTypes/1/edit
   def edit
     @role_type = RoleType.find(params[:id])
   end
 
-  # POST /RoleTypes
-  # POST /RoleTypes.json
   def create
     @role_type = RoleType.new(params[:role_type])
 
@@ -53,8 +45,6 @@ class RoleTypesController < ApplicationController
     end
   end
 
-  # PUT /RoleTypes/1
-  # PUT /RoleTypes/1.json
   def update
     @role_type = RoleType.find(params[:id])
 
@@ -69,8 +59,6 @@ class RoleTypesController < ApplicationController
     end
   end
 
-  # DELETE /RoleTypes/1
-  # DELETE /RoleTypes/1.json
   def destroy
     @role_type = RoleType.find(params[:id])
     @role_type.destroy

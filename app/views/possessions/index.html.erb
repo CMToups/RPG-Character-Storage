@@ -1,0 +1,50 @@
+<%- model_class = Possession -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:construction_cost) %></th>
+      <th><%= model_class.human_attribute_name(:construction_requirements) %></th>
+      <th><%= model_class.human_attribute_name(:construction_caster_level) %></th>
+      <th><%= model_class.human_attribute_name(:weight) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:monetary_value) %></th>
+      <th><%= model_class.human_attribute_name(:type) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @possessions.each do |possession| %>
+      <tr>
+        <td><%= link_to possession.id, possession_path(possession) %></td>
+        <td><%= possession.name %></td>
+        <td><%= possession.construction_cost %></td>
+        <td><%= possession.construction_requirements %></td>
+        <td><%= possession.construction_caster_level %></td>
+        <td><%= possession.weight %></td>
+        <td><%= possession.description %></td>
+        <td><%= possession.monetary_value %></td>
+        <td><%= possession.type %></td>
+        <td><%=l possession.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_possession_path(possession), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      possession_path(possession),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_possession_path,
+            :class => 'btn btn-primary' %>
