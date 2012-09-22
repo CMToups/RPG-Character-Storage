@@ -4,6 +4,10 @@ RPGCharacterStorage::Application.routes.draw do
 
   resources :characters
 
+  resources :role_types
+  
+  resources :races
+  
   match "/home", :to => "home#index" 
   
   match "/reference", :to => "references#index"

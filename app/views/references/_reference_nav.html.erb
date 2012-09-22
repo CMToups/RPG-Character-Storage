@@ -1,17 +1,36 @@
 <div class="well sidebar-nav">  
-  <ul class="nav nav-list">  
-    <li class="nav-header">Frontend</li>  
-    <li><a href="#">HTML 4.01</a></li>  
-    <li><a href="#">HTML5</a></li>  
-    <li><a href="#">CSS</a></li>  
-    <li><a href="#">JavaScript</a></li>  
-    <li><a href="#">Twitter Bootstrap</a></li>  
-    <li><a href="#">Firebug</a></li>  
-    <li class="nav-header">Backend</li>  
-    <li><a href="#">PHP</a></li>  
-    <li><a href="#">SQL</a></li>  
-    <li><a href="#">MySQL</a></li>  
-    <li><a href="#">PostgreSQL</a></li>  
-    <li><a href="#">MongoDB</a></li>  
-   </ul>  
+    <ul class="nav nav-list">  
+        <li class="nav-header">Categories</li>  
+        <li class="divider"></li>
+	      <li><a href="<%= reference_path(:category => "races_ref")%>">Races</a></li>  
+		    <li><a href="<%= reference_path(:category => "classes_ref")%>">Classes</a></li>  
+		    <li><a href="<%= reference_path(:category => "skills_ref")%>">Skills</a></li>  
+		    <li><a href="<%= reference_path(:category => "feats_ref")%>">Feats</a></li>   
+        <li>
+        	<a data-toggle="collapse" data-target="#possessions">Possessions</a> 
+					<ul id="possessions" class="collapse">
+						<li><a href="<%= reference_path(:category => "weapons_ref")%>">Weapons</a></li>  
+				    <li><a href="<%= reference_path(:category => "armor_ref")%>">Armor</a></li>  
+				    <li><a href="<%= reference_path(:category => "apparel_ref")%>">Apparel</a></li>  
+				    <li><a href="<%= reference_path(:category => "goods_ref")%>">Goods</a></li>  
+				    <li><a href="<%= reference_path(:category => "tools_ref")%>">Tools</a></li>  
+				    <li><a href="<%= reference_path(:category => "meterials_ref")%>">Materials</a></li>
+				    <li><a href="<%= reference_path(:category => "consumables_ref")%>">Consumables</a></li>
+				    <li><a href="<%= reference_path(:category => "lodgings_ref")%>">Lodgings</a></li>
+				    <li><a href="<%= reference_path(:category => "transports_ref")%>">Transports</a></li>
+				    <li><a href="<%= reference_path(:category => "services_ref")%>">Services</a></li>
+           </ul>
+        </li>  
+        <li>
+        	<a data-toggle="collapse" data-target="#spells">Spells</a> 
+					<ul id="spells" class="collapse">
+				    <li><a href="<%= reference_path(:category => "cleric_ref")%>">Cleric</a></li>  
+				    <li><a href="<%= reference_path(:category => "druid_ref")%>">Druid</a></li>  
+				    <li><a href="<%= reference_path(:category => "paladin_ref")%>">Paladin</a></li>
+				    <li><a href="<%= reference_path(:category => "ranger_ref")%>">Ranger</a></li>  
+				    <li><a href="<%= reference_path(:category => "sorcerer_ref")%>">Sorcerer</a></li>  
+				    <li><a href="<%= reference_path(:category => "wizard_ref")%>">Wizard</a></li>
+           </ul>
+        </li>  
+    </ul>  
 </div><!--/.well -->  

@@ -1,0 +1,48 @@
+<%- model_class = RoleType -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:role_id) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:alignment) %></th>
+      <th><%= model_class.human_attribute_name(:hit_die) %></th>
+      <th><%= model_class.human_attribute_name(:skill_rank_per_level) %></th>
+      <th><%= model_class.human_attribute_name(:spells_per_day) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @role_types.each do |role_type| %>
+      <tr>
+        <td><%= link_to role_type.id, role_type_path(role_type) %></td>
+        <td><%= role_type.name %></td>
+        <td><%= role_type.role_id %></td>
+        <td><%= role_type.description %></td>
+        <td><%= role_type.alignment %></td>
+        <td><%= role_type.hit_die %></td>
+        <td><%= role_type.skill_rank_per_level %></td>
+        <td><%= role_type.spells_per_day %></td>
+        <td><%=l role_type.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_role_type_path(role_type), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      role_type_path(role_type),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_role_type_path,
+            :class => 'btn btn-primary' %>

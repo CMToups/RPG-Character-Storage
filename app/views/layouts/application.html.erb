@@ -47,17 +47,16 @@
           <a class="brand" href="<%= root_path %>">Character Mine</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Player", players_path  %></li>
-              <li><%= link_to "Characters", characters_path  %></li>
+              <li><%= link_to "userdata", players_path  %></li>
               <li><%= link_to "Reference", reference_path  %></li>
               <li class="dropdown">
 						    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						    	Help
 						    </a>
 						    <ul class="dropdown-menu">
-						      <li><%= link_to "Link1", "/path1"  %></li>
-		              <li><%= link_to "Link2", "/path2"  %></li>
-		              <li><%= link_to "Link3", "/path3"  %></li>
+						      <li><%= link_to "About", "/path1"  %></li>
+		              <li><%= link_to "Contact", "/path2"  %></li>
+		              <li><%= link_to "Site Usage", "/path3"  %></li>
 						    </ul>
 						  </li>            
 						</ul>
@@ -67,12 +66,10 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span5 offset4">
+      <!div class="row-fluid">
           <%= bootstrap_flash %>
           <%= yield %>
-        </div>
-      </div><!--/row-->
+      <!/div><!--/row-->
 
       <footer>      
         <p>&copy; Company 2012</p>
