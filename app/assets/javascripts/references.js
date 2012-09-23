@@ -1,0 +1,1 @@
+$("#search-result").prepend('<%= escape_javascript(render :partial => "/#{model_class.to_s.underscore.pluralize}/show_#{model_class.to_s.underscore}", :locals => { :race => result, :model_class => model_class } %>');

@@ -3,18 +3,11 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @race.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:speed) %>:</strong></dt>
-  <dd><%= @race.speed %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:vision) %>:</strong></dt>
-  <dd><%= @race.vision %></dd>
-</dl>
+<%= render "show_race", :race => @race, :model_class => model_class %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              races_path, :class => 'btn'  %>
+              race_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_race_path(@race), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

@@ -1,9 +1,9 @@
 <% model_class = @klass %>
 <% unless @klass_search.empty?  %>
 	<%  @klass_search.each do |result| %>
-		<dl class="dl-horizontal">
+		<dl class="dl-horizontal" id="show-result">
 		  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-		  <dd><%= link_to result.name, send("#{model_class.to_s.underscore}_path", result.id) %></dd>
+		  <dd><%= link_to result.name, reference_path, :remote => true %></dd>
 		</dl>
 	<% end %>
 <% else %>

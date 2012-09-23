@@ -19,6 +19,13 @@ class ReferencesController < ApplicationController
   	
     respond_to do |format|
       format.html # index.html.erb
+      format.js {throw 1}
     end
   end
+  
+  def show_partial
+  	
+		
+  end
+  
 end
