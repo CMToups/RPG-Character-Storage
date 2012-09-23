@@ -64,7 +64,7 @@ class RoleTypesController < ApplicationController
     @role_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to RoleTypes_url }
+      format.html { redirect_to role_types_path }
       format.json { head :no_content }
     end
   end

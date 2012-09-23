@@ -64,7 +64,7 @@ class EffectsController < ApplicationController
     @effect.destroy
 
     respond_to do |format|
-      format.html { redirect_to Effects_url }
+      format.html { redirect_to effects_path }
       format.json { head :no_content }
     end
   end

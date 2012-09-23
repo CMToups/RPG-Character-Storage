@@ -64,7 +64,7 @@ class SkillTypesController < ApplicationController
     @skill_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to SkillTypes_url }
+      format.html { redirect_to skill_types_path }
       format.json { head :no_content }
     end
   end

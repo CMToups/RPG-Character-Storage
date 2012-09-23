@@ -1,0 +1,13 @@
+<% model_class = @klass %>
+<% unless @klass_search.empty?  %>
+	<%  @klass_search.each do |result| %>
+		<dl class="dl-horizontal">
+		  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+		  <dd><%= link_to result.name, send("#{model_class.to_s.underscore}_path", result.id) %></dd>
+		</dl>
+	<% end %>
+<% else %>
+<p class="lead">
+			Sorry, but we have not yet added any <%= model_class.to_s.pluralize %> to our library.
+</p>
+<% end %>

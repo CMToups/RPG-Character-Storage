@@ -64,7 +64,7 @@ class PossessionsController < ApplicationController
     @possession.destroy
 
     respond_to do |format|
-      format.html { redirect_to Possessions_url }
+      format.html { redirect_to possessions_path }
       format.json { head :no_content }
     end
   end

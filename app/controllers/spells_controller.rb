@@ -64,7 +64,7 @@ class SpellsController < ApplicationController
     @spell.destroy
 
     respond_to do |format|
-      format.html { redirect_to Spells_url }
+      format.html { redirect_to spells_path }
       format.json { head :no_content }
     end
   end

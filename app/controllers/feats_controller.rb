@@ -64,7 +64,7 @@ class FeatsController < ApplicationController
     @feat.destroy
 
     respond_to do |format|
-      format.html { redirect_to Feats_url }
+      format.html { redirect_to feats_path }
       format.json { head :no_content }
     end
   end
