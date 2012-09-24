@@ -5,8 +5,8 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'rails_sql_views', git: 'git://github.com/DouweM/rails_sql_views.git'
+gem 'pg'
+gem 'rails_sql_views', :git => 'git://github.com/morgz/rails_sql_views.git'
 gem 'citier'
 
 

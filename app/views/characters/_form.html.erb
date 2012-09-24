@@ -27,6 +27,11 @@
     <%= f.label :money %><br />
     <%= f.number_field :money %>
   </div>
+<div id="abilities">	
+	<%= f.fields_for :answers do |builder| %>
+    <% render "abilities", :f => builder %>
+   <% end %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>
