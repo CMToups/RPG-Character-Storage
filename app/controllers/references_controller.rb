@@ -2,30 +2,26 @@ class ReferencesController < ApplicationController
 
 	layout("references")
   def index
-  	category = params[:category] 
-  	
-  	if category
-	  	
-	  	if category[0].include? "_" #Non class searches should start with _<string>. Check and remove.
-	  		#For now only spells use this functinallity, if this changes refacter this code.
-	  		@klass = Spell
-	  		@klass_search = @klass.where("cl_#{category[1..-1]} IS NOT NULL")
-	  	else
-	  		@klass = "#{category}".classify.constantize
-	  		@klass_search = category.classify.constantize.all
-	  	end
-	  	
-  	end
-  	
-    respond_to do |format|
+  	respond_to do |format|
       format.html # index.html.erb
-      format.js {throw 1}
+      format.js 
     end
   end
   
-  def show_partial
-  	
-		
+  def find
+  	@klass = params[:klass].constantize 
+  	@klass_search = @klass.all
+  	respond_to do |format|
+      format.js
+    end
+  end
+
+  def show
+  	@klass = params[:klass].constantize.new.from_json params[:jklass] 
+  	@reference = params[:klass]
+  	respond_to do |format|
+      format.js
+    end
   end
   
 end

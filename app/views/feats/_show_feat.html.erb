@@ -1,9 +1,9 @@
 <dl class="dl-horizontal">
   <dt><strong><%= klass.class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= klass.name %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:speed) %>:</strong></dt>
-  <dd><%= klass.speed %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:vision) %>:</strong></dt>
-  <dd><%= klass.vision %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:prerequisites) %>:</strong></dt>
+  <dd><%= klass.prerequisites %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= klass.description %></dd>
 </dl>
 <%= link_to "Back", find_references_path(:klass => @reference), :remote => true, :data => {:toggle=>"tab"} if @reference %>

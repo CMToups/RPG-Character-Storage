@@ -3,7 +3,7 @@
 	<%  @klass_search.each do |result| %>
 		<dl class="dl-horizontal" id="show-result">
 		  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-		  <dd><%= link_to result.name, reference_path, :remote => true %></dd>
+		  <dd><%= link_to result.name, show_references_path(:jklass => result.to_json, :klass => result.class.name), :remote => true %></dd>
 		</dl>
 	<% end %>
 <% else %>

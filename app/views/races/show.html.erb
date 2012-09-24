@@ -3,11 +3,11 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<%= render "show_race", :race => @race, :model_class => model_class %>
+<%= render "show_race", :klass => @race %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              race_path, :class => 'btn'  %>
+              races_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_race_path(@race), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

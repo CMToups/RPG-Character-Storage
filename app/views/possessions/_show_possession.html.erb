@@ -1,0 +1,19 @@
+<dl class="dl-horizontal">
+  <dt><strong><%= klass.class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= klass.name %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:construction_cost) %>:</strong></dt>
+  <dd><%= klass.construction_cost %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:construction_requirements) %>:</strong></dt>
+  <dd><%= klass.construction_requirements %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:construction_caster_level) %>:</strong></dt>
+  <dd><%= klass.construction_caster_level %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:weight) %>:</strong></dt>
+  <dd><%= klass.weight %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= klass.description %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:monetary_value) %>:</strong></dt>
+  <dd><%= klass.monetary_value %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:type) %>:</strong></dt>
+  <dd><%= klass.type %></dd>
+</dl>
+<%= link_to "Back", find_references_path(:klass => @reference), :remote => true, :data => {:toggle=>"tab"} if @reference %>

@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+$('#reftab a').click(function (e) {
+    $('ul.nav-tabs li.active').removeClass('active')
+    $(this).parent('li').addClass('active')
+})

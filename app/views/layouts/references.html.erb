@@ -39,15 +39,26 @@
     <header class="jumbotron subhead" id="overview">
 		  <div class="container">
 		  	<div class="page-header  pagination-centered">
-			    <h1 >Reference Material</h1>
-			    <p class="lead">This list all the available game content.</p>
+			    <h1 >Reference Material <small>This list all the available game content.</small></h1> 
 		  	</div>			    
 		  </div>
 		</header>
     <div class="container-fluid">
       <div class="row-fluid">
     	  <div class="span2">
-		      <%= render "reference_nav"  %>
+		      <div id="reftab" class="tabbable tabs-left">  
+				    <ul class="nav nav-tabs">  
+				        <li class="nav-header"></li>
+				        <li class="nav-header"></li>   
+				        <li class="active"><%= link_to "References", references_path, :remote => true %></li>
+					      <li><%= link_to "Races", find_references_path(:klass => "Race"), :remote => true, :data => {:toggle=>"tab"} %></li>  
+						    <li><%= link_to "Classes", find_references_path(:klass => "RoleType"), :remote => true, :data => {:toggle=>"tab"} %></li>  
+						    <li><%= link_to "Skills", find_references_path(:klass => "SkillType"), :remote => true, :data => {:toggle=>"tab"} %></li>  
+						    <li><%= link_to "Feats", find_references_path(:klass => "Feat"), :remote => true, :data => {:toggle=>"tab"} %></li>
+						    <li><%= link_to "Spells", find_references_path(:klass => "Spell"), :remote => true, :data => {:toggle=>"tab"} %></li>
+						    <li><%= link_to "Possessions", find_references_path(:klass => "Possession"), :remote => true, :data => {:toggle=>"tab"} %></li> 
+					    </ul>
+					</div>
 		    </div>
         <div class="span10">
           <%= bootstrap_flash %>

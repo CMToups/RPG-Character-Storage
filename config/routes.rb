@@ -21,7 +21,9 @@ RPGCharacterStorage::Application.routes.draw do
   
   match "/home", :to => "home#index" 
   
-  match "/reference", :to => "references#index"
+  match "/references", :to => "references#index"
+    get "references/find" => 'references#find', :as => :find_references
+    get "references/show" => 'references#show', :as => :show_references
     
   root :to => "home#index"
   # The priority is based upon order of creation:

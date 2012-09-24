@@ -3,16 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @skill_type.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @skill_type.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ability_type) %>:</strong></dt>
-  <dd><%= @skill_type.ability_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:skill_id) %>:</strong></dt>
-  <dd><%= @skill_type.skill_id %></dd>
-</dl>
+<%= render "show_skill_type", :klass => @skill_type %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

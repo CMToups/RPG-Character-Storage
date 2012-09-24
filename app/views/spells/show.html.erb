@@ -3,38 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @spell.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:school) %>:</strong></dt>
-  <dd><%= @spell.school %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:descriptor) %>:</strong></dt>
-  <dd><%= @spell.descriptor %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @spell.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cl_cleric) %>:</strong></dt>
-  <dd><%= @spell.cl_cleric %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cl_druid) %>:</strong></dt>
-  <dd><%= @spell.cl_druid %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cl_paladin) %>:</strong></dt>
-  <dd><%= @spell.cl_paladin %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cl_sorcerer) %>:</strong></dt>
-  <dd><%= @spell.cl_sorcerer %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cl_ranger) %>:</strong></dt>
-  <dd><%= @spell.cl_ranger %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cl_wizard) %>:</strong></dt>
-  <dd><%= @spell.cl_wizard %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:components) %>:</strong></dt>
-  <dd><%= @spell.components %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:casting_time) %>:</strong></dt>
-  <dd><%= @spell.casting_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:range) %>:</strong></dt>
-  <dd><%= @spell.range %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:duration) %>:</strong></dt>
-  <dd><%= @spell.duration %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:saving_throw) %>:</strong></dt>
-  <dd><%= @spell.saving_throw %></dd>
-</dl>
+<%= render "show_spell", :klass => @spell %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

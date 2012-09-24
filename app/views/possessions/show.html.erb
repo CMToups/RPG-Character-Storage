@@ -3,24 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @possession.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:construction_cost) %>:</strong></dt>
-  <dd><%= @possession.construction_cost %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:construction_requirements) %>:</strong></dt>
-  <dd><%= @possession.construction_requirements %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:construction_caster_level) %>:</strong></dt>
-  <dd><%= @possession.construction_caster_level %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:weight) %>:</strong></dt>
-  <dd><%= @possession.weight %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @possession.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:monetary_value) %>:</strong></dt>
-  <dd><%= @possession.monetary_value %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
-  <dd><%= @possession.type %></dd>
-</dl>
+<%= render "show_possession", :klass => @possession %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
