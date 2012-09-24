@@ -57,5 +57,6 @@ module RPGCharacterStorage
     config.assets.version = '1.0'
     
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
+    config.assets.initialize_on_precompile=false
   end
 end
