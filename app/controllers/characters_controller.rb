@@ -3,7 +3,7 @@ class CharactersController < ApplicationController
   # GET /characters.json
   before_filter :authenticate_player!
   def index
-    @characters = Character.all
+    @characters = current_player.character
 
     respond_to do |format|
       format.html # index.html.erb

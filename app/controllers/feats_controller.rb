@@ -1,5 +1,10 @@
 class FeatsController < ApplicationController
 
+	before_filter :authenticate_player!
+  before_filter do 
+    redirect_to root_path unless current_player.admin?
+  end
+  
   def index
     @feats = Feat.all
 

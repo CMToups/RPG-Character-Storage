@@ -1,5 +1,6 @@
 class ReferencesController < ApplicationController
 
+
 	layout("references")
   def index
   	respond_to do |format|
