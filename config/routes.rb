@@ -1,5 +1,7 @@
 RPGCharacterStorage::Application.routes.draw do
 
+  devise_for :players
+
   resources :players
 
   resources :characters

@@ -24,7 +24,7 @@ describe PlayersController do
   # Player. As you add validations to Player, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :email => "example@ex.com", :password => "1fu9kan3m3"}
   end
 
   # This should return the minimal set of values that should be in the session

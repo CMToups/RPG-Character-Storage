@@ -7,7 +7,6 @@ gem 'rails', '3.2.1'
 
 gem 'pg'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -43,6 +42,9 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+#security Gems
+
+gem 'devise'
 
 # RPG Gems
 gem "crapshoot", "~> 0.5.0"
