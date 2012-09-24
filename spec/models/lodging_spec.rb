@@ -47,9 +47,4 @@ describe Lodging do
   	should respond_to(:construction_cost)
   end
   
-#class
-
-	it "should have a valid location" do 
-		should respond_to(:location)
-	end
 end

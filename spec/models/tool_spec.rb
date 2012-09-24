@@ -51,11 +51,5 @@ describe Tool do
   it "should have a valid construction cost" do 
   	should respond_to(:construction_cost)
   end 
-
-#class
-	
-	it "should have a valid function" do 
-		should respond_to(:function)
-	end
 	
 end

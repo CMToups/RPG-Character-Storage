@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe SkillsController do
+describe SkillTypesController do
 
 end

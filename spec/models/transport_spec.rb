@@ -48,10 +48,4 @@ describe Transport do
   	should respond_to(:construction_cost)
   end  
   
-#class
-
-	it "should have a transportation method" do 
-		should respond_to(:transportation_method)
-	end
-
 end

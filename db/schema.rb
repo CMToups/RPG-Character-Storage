@@ -28,20 +28,6 @@ ActiveRecord::Schema.define(:version => 20120921024601) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "apparels", :force => true do |t|
-    t.string "slot"
-  end
-
-  create_table "armors", :force => true do |t|
-    t.string  "category"
-    t.string  "slot"
-    t.integer "maximum_dexterity_value"
-    t.integer "armor_check_penalty"
-    t.integer "spell_failure"
-    t.string  "speed_limitation"
-    t.integer "magic_value"
-  end
-
   create_table "aspects", :force => true do |t|
     t.string   "size"
     t.string   "gender"
@@ -84,10 +70,6 @@ ActiveRecord::Schema.define(:version => 20120921024601) do
 
   add_index "characters_possessions", ["character_id", "possession_id"], :name => "index_characters_possessions_on_character_id_and_possession_id"
 
-  create_table "consumables", :force => true do |t|
-    t.string "expiration"
-  end
-
   create_table "effectables", :force => true do |t|
     t.integer  "effect_id"
     t.integer  "effectee_id"
@@ -125,19 +107,6 @@ ActiveRecord::Schema.define(:version => 20120921024601) do
 
   add_index "feats_role_types", ["feat_id", "role_type_id"], :name => "index_feats_role_types_on_feat_id_and_role_type_id"
 
-  create_table "goods", :force => true do |t|
-    t.string "category"
-  end
-
-  create_table "lodgings", :force => true do |t|
-    t.string "location"
-  end
-
-  create_table "meterials", :force => true do |t|
-    t.string "usage"
-    t.string "duration"
-  end
-
   create_table "players", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -151,6 +120,20 @@ ActiveRecord::Schema.define(:version => 20120921024601) do
     t.integer  "weight"
     t.text     "description"
     t.integer  "monetary_value"
+    t.string   "category"
+    t.string   "damage"
+    t.boolean  "lethal"
+    t.string   "critical_range"
+    t.string   "critical_damage"
+    t.string   "range"
+    t.string   "magical_name"
+    t.integer  "magic_value"
+    t.string   "weapon_type"
+    t.string   "slot"
+    t.integer  "maximum_dexterity_value"
+    t.integer  "armor_check_penalty"
+    t.integer  "spell_failure"
+    t.string   "speed_limitation"
     t.string   "type"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
@@ -189,10 +172,6 @@ ActiveRecord::Schema.define(:version => 20120921024601) do
     t.integer  "level"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-  end
-
-  create_table "services", :force => true do |t|
-    t.string "duration"
   end
 
   create_table "skill_types", :force => true do |t|
@@ -244,191 +223,6 @@ ActiveRecord::Schema.define(:version => 20120921024601) do
     t.string   "saving_throw"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-  end
-
-  create_table "tools", :force => true do |t|
-    t.string "function"
-  end
-
-  create_table "transports", :force => true do |t|
-    t.string "transportation_method"
-  end
-
-  create_table "weapons", :force => true do |t|
-    t.string  "category"
-    t.string  "damage"
-    t.boolean "lethal"
-    t.string  "critical_range"
-    t.string  "critical_damage"
-    t.string  "range"
-    t.string  "magical_name"
-    t.integer "magic_value"
-    t.string  "weapon_type"
-  end
-
-  create_view "view_apparels", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,slot FROM possessions, apparels WHERE possessions.id = apparels.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :slot
-  end
-
-  create_view "view_armors", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,category,slot,maximum_dexterity_value,armor_check_penalty,spell_failure,speed_limitation,magic_value FROM possessions, armors WHERE possessions.id = armors.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :category
-    v.column :slot
-    v.column :maximum_dexterity_value
-    v.column :armor_check_penalty
-    v.column :spell_failure
-    v.column :speed_limitation
-    v.column :magic_value
-  end
-
-  create_view "view_consumables", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,expiration FROM possessions, consumables WHERE possessions.id = consumables.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :expiration
-  end
-
-  create_view "view_goods", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,category FROM possessions, goods WHERE possessions.id = goods.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :category
-  end
-
-  create_view "view_lodgings", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,location FROM possessions, lodgings WHERE possessions.id = lodgings.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :location
-  end
-
-  create_view "view_meterials", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,usage,duration FROM possessions, meterials WHERE possessions.id = meterials.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :usage
-    v.column :duration
-  end
-
-  create_view "view_services", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,duration FROM possessions, services WHERE possessions.id = services.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :duration
-  end
-
-  create_view "view_tools", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,function FROM possessions, tools WHERE possessions.id = tools.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :function
-  end
-
-  create_view "view_transports", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,transportation_method FROM possessions, transports WHERE possessions.id = transports.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :transportation_method
-  end
-
-  create_view "view_weapons", "SELECT possessions.id, name,construction_cost,construction_requirements,construction_caster_level,weight,description,monetary_value,type,created_at,updated_at,category,damage,lethal,critical_range,critical_damage,range,magical_name,magic_value,weapon_type FROM possessions, weapons WHERE possessions.id = weapons.id", :force => true do |v|
-    v.column :id
-    v.column :name
-    v.column :construction_cost
-    v.column :construction_requirements
-    v.column :construction_caster_level
-    v.column :weight
-    v.column :description
-    v.column :monetary_value
-    v.column :type
-    v.column :created_at
-    v.column :updated_at
-    v.column :category
-    v.column :damage
-    v.column :lethal
-    v.column :critical_range
-    v.column :critical_damage
-    v.column :range
-    v.column :magical_name
-    v.column :magic_value
-    v.column :weapon_type
   end
 
 end

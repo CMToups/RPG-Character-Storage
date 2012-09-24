@@ -47,13 +47,4 @@ describe Meterial do
   	should respond_to(:construction_cost)
   end 
 
-#class
-
-	it "should have a valid duration" do 
-		should respond_to(:duration)
-	end
-	
-	it "should have a valid usage" do 
-		should respond_to(:usage)
-	end
 end

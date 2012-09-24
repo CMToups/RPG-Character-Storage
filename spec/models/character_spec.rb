@@ -84,7 +84,7 @@ describe Character do
 
   it "should have an aspect when saved" do
     @character.save
-    @character.aspect.should == Aspect.where(:id => 1).first
+    @character.aspect.class.should == Aspect
   end
 
 #background
@@ -98,7 +98,7 @@ describe Character do
   
   it "should have a background when saved" do
     @character.save
-    @character.background.should == Background.where(:id => 1).first
+    @character.background.class.should == Background
   end
   
 #ability
@@ -209,7 +209,8 @@ describe Character do
 	  @character.save
   	role_type = RoleType.create
   	@character.role.create(:role_type_id => role_type)
-  	@character.role.first.should == Role.where(:role_type_id => role_type).first
+  	@character.save
+  	@character.role.first.should == Role.where(:role_type_id => role_type.id).first
   end
 
 #possesion  
@@ -282,10 +283,10 @@ describe Character do
 	
 	it "add effect should work for collections class" do 
 		@character.save
-		@character.skill.build(:skill_type_id => SkillType.create(:name => "Climb")) 
+		@character.skill.create(:skill_type_id => SkillType.create(:name => "Climb"))
 		effect = Effect.create(:name => "some_effect", :target_klass => "Skill", :target_instance => "Climb", :value => 1)
-		@character.save
 		@character.add_effect(effect)
+		@character.save
 		Effectable.where(:character_id => @character.id).first.effect.should == effect
 	end
 		

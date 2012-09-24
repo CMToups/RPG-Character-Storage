@@ -46,10 +46,4 @@ describe Consumable do
   	should respond_to(:construction_cost)
   end  
 
-#class
-	
-	it "should have a valid expiration" do 
-		should respond_to(:expiration)
-	end
-	
 end
