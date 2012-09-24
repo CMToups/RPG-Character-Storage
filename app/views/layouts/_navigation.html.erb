@@ -18,7 +18,7 @@
 					  <li>
 					  <%= link_to('Logout', destroy_player_session_path, :method => :delete) %>        
 					  </li>
-					  <% if current_player.try(:admin) %>
+					  <% if current_player.try(:admin?) %>
 	            <li class="dropdown">
 						    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						    	Administration
