@@ -196,8 +196,6 @@ ActiveRecord::Schema.define(:version => 20120921024601) do
     t.integer "spell_type_id", :null => false
   end
 
-  add_index "spell_lists_spell_types", ["spell_list_id", "spell_type_id"], :name => "index_spell_lists_spell_types_on_spell_list_id_and_spell_type_id"
-
   create_table "spell_slots", :force => true do |t|
     t.integer  "character_id"
     t.integer  "spell_id"
