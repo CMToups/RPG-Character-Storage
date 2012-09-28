@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924102459) do
+ActiveRecord::Schema.define(:version => 20120928043504) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -190,9 +190,22 @@ ActiveRecord::Schema.define(:version => 20120924102459) do
 
   create_table "skill_types", :force => true do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "subtype"
     t.string   "ability_type"
-    t.integer  "skill_id"
+    t.boolean  "psionic"
+    t.boolean  "trained"
+    t.boolean  "armor_check"
+    t.text     "description"
+    t.text     "skill_check"
+    t.text     "action"
+    t.text     "try_again"
+    t.text     "special"
+    t.text     "restriction"
+    t.text     "synergy"
+    t.text     "epic_use"
+    t.text     "untrained"
+    t.text     "full_text"
+    t.string   "reference"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

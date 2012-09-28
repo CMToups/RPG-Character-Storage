@@ -9,7 +9,6 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:ability_type) %></th>
-      <th><%= model_class.human_attribute_name(:skill_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -21,7 +20,6 @@
         <td><%= skill_type.name %></td>
         <td><%= skill_type.description %></td>
         <td><%= skill_type.ability_type %></td>
-        <td><%= skill_type.skill_id %></td>
         <td><%=l skill_type.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
