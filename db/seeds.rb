@@ -9,7 +9,7 @@
 
 base_dir = "#{Rails.root}/db/data"
 
-bulk_load = [SkillType]
+bulk_load = [SkillType, Feat]
 
 bulk_load.each do |table|
   if table.first.nil? # only bulk load into empty tables

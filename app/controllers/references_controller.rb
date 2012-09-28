@@ -18,7 +18,7 @@ class ReferencesController < ApplicationController
   end
 
   def show
-  	@klass = params[:klass].constantize.new.from_json params[:jklass] 
+  	@klass = params[:klass].constantize.find(params[:id]) 
   	@reference = params[:klass]
   	respond_to do |format|
       format.js

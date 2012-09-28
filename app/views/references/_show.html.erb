@@ -1,0 +1,5 @@
+<dl class="dl-horizontal">
+  <dd><%=raw klass.full_text %></dd>
+  <dd><strong><%= klass.class.human_attribute_name(:reference) %>:</strong> <%= klass.reference %></d>
+  <dd><%= link_to "Back", find_references_path(:klass => @reference), :remote => true %></dd>
+</dl>

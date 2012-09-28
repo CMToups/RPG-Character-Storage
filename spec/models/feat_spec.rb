@@ -18,12 +18,44 @@ describe Feat do
     should allow_value("Power Overwhelming").for(:name) 
   end
 
-   it "should have valid description" do
-    should allow_value("this is a feat").for(:description)
+   it "should have valid feat_type" do
+    should allow_value("this is a feat").for(:feat_type)
   end
-  
-   it "should have valid prerequisites" do
-    should allow_value("crazy prereq").for(:prerequisites) 
+
+   it "should have valid multiple" do
+    should allow_value(true).for(:multiple)
+  end
+
+   it "should have valid stack" do
+    should allow_value(true).for(:stack)
+  end
+
+   it "should have valid choice" do
+    should allow_value("this is a feat").for(:choice)
+  end
+
+   it "should have valid prerequisite" do
+    should allow_value("this is a feat").for(:prerequisite)
+  end
+
+   it "should have valid benefit" do
+    should allow_value("this is a feat").for(:benefit)
+  end
+
+   it "should have valid normal" do
+    should allow_value("this is a feat").for(:normal)
+  end
+
+   it "should have valid special" do
+    should allow_value("this is a feat").for(:special)
+  end
+
+   it "should have valid full_text" do
+    should allow_value("this is a feat").for(:full_text)
+  end
+
+   it "should have valid reference" do
+    should allow_value("this is a feat").for(:reference)
   end
   
 end

@@ -94,10 +94,18 @@ ActiveRecord::Schema.define(:version => 20120928043504) do
 
   create_table "feats", :force => true do |t|
     t.string   "name"
-    t.text     "prerequisites"
-    t.text     "description"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string   "feat_type"
+    t.boolean  "multiple"
+    t.boolean  "stack"
+    t.string   "choice"
+    t.text     "prerequisite"
+    t.text     "benefit"
+    t.text     "normal"
+    t.text     "special"
+    t.text     "full_text"
+    t.string   "reference"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "feats_role_types", :id => false, :force => true do |t|

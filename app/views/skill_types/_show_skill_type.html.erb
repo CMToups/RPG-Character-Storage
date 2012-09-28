@@ -1,9 +1,39 @@
 <dl class="dl-horizontal">
+<!--
   <dt><strong><%= klass.class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= klass.name %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= klass.description %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:subtype) %>:</strong></dt>
+  <dd><%= klass.subtype || "none" %></dd>
   <dt><strong><%= klass.class.human_attribute_name(:ability_type) %>:</strong></dt>
   <dd><%= klass.ability_type %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:psionic) %>:</strong></dt>
+  <dd><%= klass.psionic %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:trained) %>:</strong></dt>
+  <dd><%= klass.trained %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:armor_check) %>:</strong></dt>
+  <dd><%= klass.armor_check %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= klass.description || "none" %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:skill_check) %>:</strong></dt>
+  <dd><%=raw klass.skill_check %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:action) %>:</strong></dt>
+  <dd><%= klass.action %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:try_again) %>:</strong></dt>
+  <dd><%= klass.try_again %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:special) %>:</strong></dt>
+  <dd><%= klass.special %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:restriction) %>:</strong></dt>
+  <dd><%= klass.restriction %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:synergy) %>:</strong></dt>
+  <dd><%= klass.synergy %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:epic_use) %>:</strong></dt>
+  <dd><%=raw klass.epic_use %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:untrained) %>:</strong></dt>
+  <dd><%= klass.untrained %></dd>
+  <dt><strong><%= klass.class.human_attribute_name(:full_text) %>:</strong></dt>
+-->
+  <dd><%=raw klass.full_text %></dd>
+  <dd><strong><%= klass.class.human_attribute_name(:reference) %>:</strong> <%= klass.reference %></dd>
+  
 </dl>
 <%= link_to "Back", find_references_path(:klass => @reference), :remote => true, :data => {:toggle=>"tab"} if @reference %>
