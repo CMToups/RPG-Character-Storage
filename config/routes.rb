@@ -6,6 +6,8 @@ RPGCharacterStorage::Application.routes.draw do
 
   resources :characters
 
+  resources :ability
+  
   resources :role_types
   
   resources :races

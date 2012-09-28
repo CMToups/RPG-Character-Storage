@@ -9,38 +9,36 @@
       <a class="brand" href="<%= root_path %>">Character Mine</a>
       <div class="container-fluid nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Reference", references_path  %></li>   
+          <li><%= link_to "Reference", references_path  %></li>
           <% if player_signed_in? %>
-          	<li><%= link_to "Characters", characters_path  %></li>
-					  <li>
-					  <%= link_to('Account', edit_player_registration_path) %>
-					  </li>
-					  <li>
-					  <%= link_to('Logout', destroy_player_session_path, :method => :delete) %>        
-					  </li>
+	        	<li><%= link_to "Characters", characters_path  %></li>
 					  <% if current_player.try(:admin?) %>
 	            <li class="dropdown">
-						    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						    	Administration
-						    </a>
-						    <ul class="dropdown-menu">
-		              <li><%= link_to "Races", races_path  %></li>
-						      <li><%= link_to "Classes", role_types_path  %></li>
-		              <li><%= link_to "Skills", skill_types_path  %></li>
-		              <li><%= link_to "Feats", feats_path  %></li>
-		              <li><%= link_to "Possessions", possessions_path  %></li>
-		              <li><%= link_to "Spells", spells_path  %></li>
-		              <li><%= link_to "Effects", effects_path  %></li>
-						    </ul>
-						  </li> 
+					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					    	Administration
+					    </a>
+					    <ul class="dropdown-menu">
+	              <li><%= link_to "Races", races_path  %></li>
+					      <li><%= link_to "Classes", role_types_path  %></li>
+	              <li><%= link_to "Skills", skill_types_path  %></li>
+	              <li><%= link_to "Feats", feats_path  %></li>
+	              <li><%= link_to "Possessions", possessions_path  %></li>
+	              <li><%= link_to "Spells", spells_path  %></li>
+	              <li><%= link_to "Effects", effects_path  %></li>
+					    </ul>
+					  </li> 
 					  <% end %>
+	        <% end %>
+	      </ul>   
+	      <ul class="nav pull-right">
+          <% if player_signed_in? %>
+				  	<li><%= link_to('Logout', destroy_player_session_path, :method => :delete) %></li>
+				  	<li class="divider-vertical"></li>
+				  	<li><%= link_to('Account', edit_player_registration_path) %></li>
 					<% else %>
-					  <li>
-					  <%= link_to('Login', new_player_session_path)  %>  
-					  </li>
-					  <li>
-					  <%= link_to('Sign Up!', new_player_registration_path)  %>
-					  </li>
+					  <li><%= link_to('Login', new_player_session_path)  %></li>
+					  <li class="divider-vertical"></li>
+					  <li><%= link_to('Sign Up!', new_player_registration_path)  %></li>
 					<% end %>       
 				</ul>
       </div><!--/.nav-collapse -->

@@ -1,4 +1,4 @@
-<%= form_for(@character) do |f| %>
+<%=  simple_form_for(@character, :html => {:class => 'form-horizontal' }) do |f| %>
   <% if @character.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
@@ -10,27 +10,14 @@
       </ul>
     </div>
   <% end %>
+			<%= render "abilities", :f => f %>
+		<div class="bs-docs-example" style="padding-bottom: 24px;">
+		  <a data-toggle="modal" href="#myModal" class="btn">Edit Abilities</a>
+		</div>
 
-  <div class="field">
-    <%= f.label :experience_points %><br />
-    <%= f.number_field :experience_points %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :total_hit_points %><br />
-    <%= f.number_field :total_hit_points %>
-  </div>
-  <div class="field">
-    <%= f.label :money %><br />
-    <%= f.number_field :money %>
-  </div>
-<div id="abilities">	
-
-</div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	  <%= f.input :name %>
+    <%= f.input :experience_points %>
+    <%= f.input :total_hit_points %>
+    <%= f.input :money %>
+    <%= f.button :submit %>
 <% end %>

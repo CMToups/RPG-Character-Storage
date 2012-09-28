@@ -4,11 +4,12 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: postgres_development
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: mysql2_development
   pool: 5
-  username: Sivli
+  username: root
   password:
   host: localhost
 

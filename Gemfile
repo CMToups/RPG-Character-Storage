@@ -23,6 +23,7 @@ end
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "shoulda", :git => "git://github.com/thoughtbot/shoulda.git", :require => false
+  gem "mysql2"
 end
 
 gem 'jquery-rails'
@@ -48,3 +49,6 @@ gem 'devise'
 
 # RPG Gems
 gem "crapshoot", "~> 0.5.0"
+
+#form gems
+gem 'simple_form'

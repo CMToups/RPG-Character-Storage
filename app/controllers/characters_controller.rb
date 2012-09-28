@@ -4,7 +4,6 @@ class CharactersController < ApplicationController
   before_filter :authenticate_player!
   def index
     @characters = current_player.character
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @characters }
@@ -15,7 +14,7 @@ class CharactersController < ApplicationController
   # GET /characters/1.json
   def show
     @character = Character.find(params[:id])
-
+    @ability = @character.ability
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @character }
@@ -26,7 +25,10 @@ class CharactersController < ApplicationController
   # GET /characters/new.json
   def new
     @character = Character.new
-
+    @character.player_id = current_player.id
+    @character.name = "Unnamed"
+    @character.save
+    @ability = @character.ability
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @character }
@@ -36,13 +38,13 @@ class CharactersController < ApplicationController
   # GET /characters/1/edit
   def edit
     @character = Character.find(params[:id])
+    @ability = @character.ability
   end
 
   # POST /characters
   # POST /characters.json
   def create
     @character = Character.new(params[:character])
-
     respond_to do |format|
       if @character.save
         format.html { redirect_to @character, notice: 'Character was successfully created.' }
