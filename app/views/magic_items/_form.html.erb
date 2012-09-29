@@ -1,0 +1,23 @@
+<%= simple_form_for(@magic_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :category %>
+    <%= f.input :subcategory %>
+    <%= f.input :special_ability %>
+    <%= f.input :aura %>
+    <%= f.input :caster_level %>
+    <%= f.input :price %>
+    <%= f.input :manifester_level %>
+    <%= f.input :prereq %>
+    <%= f.input :cost %>
+    <%= f.input :weight %>
+    <%= f.input :full_text %>
+    <%= f.input :reference %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

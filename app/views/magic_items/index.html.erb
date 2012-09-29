@@ -1,0 +1,47 @@
+<h1>Listing magic_items</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Subcategory</th>
+    <th>Special ability</th>
+    <th>Aura</th>
+    <th>Caster level</th>
+    <th>Price</th>
+    <th>Manifester level</th>
+    <th>Prereq</th>
+    <th>Cost</th>
+    <th>Weight</th>
+    <th>Full text</th>
+    <th>Reference</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @magic_items.each do |magic_item| %>
+  <tr>
+    <td><%= magic_item.name %></td>
+    <td><%= magic_item.category %></td>
+    <td><%= magic_item.subcategory %></td>
+    <td><%= magic_item.special_ability %></td>
+    <td><%= magic_item.aura %></td>
+    <td><%= magic_item.caster_level %></td>
+    <td><%= magic_item.price %></td>
+    <td><%= magic_item.manifester_level %></td>
+    <td><%= magic_item.prereq %></td>
+    <td><%= magic_item.cost %></td>
+    <td><%= magic_item.weight %></td>
+    <td><%= magic_item.full_text %></td>
+    <td><%= magic_item.reference %></td>
+    <td><%= link_to 'Show', magic_item %></td>
+    <td><%= link_to 'Edit', edit_magic_item_path(magic_item) %></td>
+    <td><%= link_to 'Destroy', magic_item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Magic item', new_magic_item_path %>

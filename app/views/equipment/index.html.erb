@@ -1,0 +1,59 @@
+<h1>Listing equipment</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Family</th>
+    <th>Category</th>
+    <th>Subcategory</th>
+    <th>Cost</th>
+    <th>Dmg s</th>
+    <th>Armor shield bonus</th>
+    <th>Maximum dex bonus</th>
+    <th>Dmg m</th>
+    <th>Weight</th>
+    <th>Critical</th>
+    <th>Armor check penalty</th>
+    <th>Arcane spell failure chance</th>
+    <th>Range increment</th>
+    <th>Speed 30</th>
+    <th>Weapon type</th>
+    <th>Speed 20</th>
+    <th>Full text</th>
+    <th>Reference</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @equipment.each do |equipment| %>
+  <tr>
+    <td><%= equipment.name %></td>
+    <td><%= equipment.family %></td>
+    <td><%= equipment.category %></td>
+    <td><%= equipment.subcategory %></td>
+    <td><%= equipment.cost %></td>
+    <td><%= equipment.dmg_s %></td>
+    <td><%= equipment.armor_shield_bonus %></td>
+    <td><%= equipment.maximum_dex_bonus %></td>
+    <td><%= equipment.dmg_m %></td>
+    <td><%= equipment.weight %></td>
+    <td><%= equipment.critical %></td>
+    <td><%= equipment.armor_check_penalty %></td>
+    <td><%= equipment.arcane_spell_failure_chance %></td>
+    <td><%= equipment.range_increment %></td>
+    <td><%= equipment.speed_30 %></td>
+    <td><%= equipment.weapon_type %></td>
+    <td><%= equipment.speed_20 %></td>
+    <td><%= equipment.full_text %></td>
+    <td><%= equipment.reference %></td>
+    <td><%= link_to 'Show', equipment %></td>
+    <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
+    <td><%= link_to 'Destroy', equipment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Equipment', new_equipment_path %>

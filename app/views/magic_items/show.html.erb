@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @magic_item.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @magic_item.category %>
+</p>
+
+<p>
+  <b>Subcategory:</b>
+  <%= @magic_item.subcategory %>
+</p>
+
+<p>
+  <b>Special ability:</b>
+  <%= @magic_item.special_ability %>
+</p>
+
+<p>
+  <b>Aura:</b>
+  <%= @magic_item.aura %>
+</p>
+
+<p>
+  <b>Caster level:</b>
+  <%= @magic_item.caster_level %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @magic_item.price %>
+</p>
+
+<p>
+  <b>Manifester level:</b>
+  <%= @magic_item.manifester_level %>
+</p>
+
+<p>
+  <b>Prereq:</b>
+  <%= @magic_item.prereq %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @magic_item.cost %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @magic_item.weight %>
+</p>
+
+<p>
+  <b>Full text:</b>
+  <%= @magic_item.full_text %>
+</p>
+
+<p>
+  <b>Reference:</b>
+  <%= @magic_item.reference %>
+</p>
+
+
+<%= link_to 'Edit', edit_magic_item_path(@magic_item) %> |
+<%= link_to 'Back', magic_items_path %>

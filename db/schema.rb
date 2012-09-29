@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929032353) do
+ActiveRecord::Schema.define(:version => 20120929052529) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -110,6 +110,30 @@ ActiveRecord::Schema.define(:version => 20120929032353) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "equipment", :force => true do |t|
+    t.string   "name"
+    t.string   "family"
+    t.string   "category"
+    t.string   "subcategory"
+    t.string   "cost"
+    t.string   "dmg_s"
+    t.integer  "armor_shield_bonus"
+    t.integer  "maximum_dex_bonus"
+    t.string   "dmg_m"
+    t.string   "weight"
+    t.string   "critical"
+    t.string   "armor_check_penalty"
+    t.string   "arcane_spell_failure_chance"
+    t.string   "range_increment"
+    t.string   "speed_30"
+    t.string   "weapon_type"
+    t.string   "speed_20"
+    t.text     "full_text"
+    t.string   "reference"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
   create_table "feats", :force => true do |t|
     t.string   "name"
     t.string   "feat_type"
@@ -132,6 +156,24 @@ ActiveRecord::Schema.define(:version => 20120929032353) do
   end
 
   add_index "feats_role_types", ["feat_id", "role_type_id"], :name => "index_feats_role_types_on_feat_id_and_role_type_id"
+
+  create_table "magic_items", :force => true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "subcategory"
+    t.boolean  "special_ability"
+    t.string   "aura"
+    t.integer  "caster_level"
+    t.string   "price"
+    t.integer  "manifester_level"
+    t.text     "prereq"
+    t.string   "cost"
+    t.string   "weight"
+    t.text     "full_text"
+    t.string   "reference"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "players", :force => true do |t|
     t.boolean  "admin",                  :default => false

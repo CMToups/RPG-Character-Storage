@@ -1,5 +1,9 @@
 RPGCharacterStorage::Application.routes.draw do
 
+  resources :magic_items
+
+  resources :equipment
+
   resources :spells
 
   resources :powers
