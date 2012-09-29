@@ -19,13 +19,12 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-  adapter: postgresql
-  encoding: unicode
-  database: postgres_test
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: mysql2_test
   pool: 5
-  username: Sivli
+  username: root
   password:
   host: localhost
 
-production:
-	adapter: mysql2
