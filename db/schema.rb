@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929020044) do
+ActiveRecord::Schema.define(:version => 20120929023059) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -177,6 +177,32 @@ ActiveRecord::Schema.define(:version => 20120929020044) do
     t.string   "type"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+  end
+
+  create_table "powers", :force => true do |t|
+    t.string   "name"
+    t.string   "discipline"
+    t.string   "subdiscipline"
+    t.string   "descriptor"
+    t.string   "level"
+    t.string   "display"
+    t.string   "manifesting_time"
+    t.string   "power_range"
+    t.string   "power_target"
+    t.string   "area"
+    t.string   "result"
+    t.string   "duration"
+    t.string   "saving_throw"
+    t.string   "power_points"
+    t.string   "power_resistance"
+    t.text     "short_description"
+    t.text     "xp_cost"
+    t.text     "description"
+    t.text     "augment"
+    t.text     "full_text"
+    t.string   "reference"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "races", :force => true do |t|
