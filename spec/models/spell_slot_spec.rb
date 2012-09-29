@@ -5,7 +5,7 @@ describe SpellSlot do
   	should belong_to(:character)
   end 
   
-  it "should belong to a spell" do 
-  	should belong_to(:spell)
+  it "should belong to a magic" do 
+  	should belong_to(:magic)
   end
 end

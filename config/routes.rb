@@ -1,5 +1,7 @@
 RPGCharacterStorage::Application.routes.draw do
 
+  resources :spells
+
   resources :powers
 
   resources :domains

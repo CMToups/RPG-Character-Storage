@@ -1,0 +1,85 @@
+<h1>Listing spells</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Altname</th>
+    <th>School</th>
+    <th>Subschool</th>
+    <th>Descriptor</th>
+    <th>Spellcraft dc</th>
+    <th>Level</th>
+    <th>Components</th>
+    <th>Casting time</th>
+    <th>Spell range</th>
+    <th>Spell target</th>
+    <th>Area</th>
+    <th>Result</th>
+    <th>Duration</th>
+    <th>Saving throw</th>
+    <th>Spell resistance</th>
+    <th>Short description</th>
+    <th>To develop</th>
+    <th>Material components</th>
+    <th>Arcane material components</th>
+    <th>Focus</th>
+    <th>Description</th>
+    <th>Xp cost</th>
+    <th>Arcane focus</th>
+    <th>Wizard focus</th>
+    <th>Verbal components</th>
+    <th>Sorcerer focus</th>
+    <th>Bard focus</th>
+    <th>Cleric focus</th>
+    <th>Druid focus</th>
+    <th>Full text</th>
+    <th>Reference</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @spells.each do |spell| %>
+  <tr>
+    <td><%= spell.name %></td>
+    <td><%= spell.altname %></td>
+    <td><%= spell.school %></td>
+    <td><%= spell.subschool %></td>
+    <td><%= spell.descriptor %></td>
+    <td><%= spell.spellcraft_dc %></td>
+    <td><%= spell.level %></td>
+    <td><%= spell.components %></td>
+    <td><%= spell.casting_time %></td>
+    <td><%= spell.spell_range %></td>
+    <td><%= spell.spell_target %></td>
+    <td><%= spell.area %></td>
+    <td><%= spell.result %></td>
+    <td><%= spell.duration %></td>
+    <td><%= spell.saving_throw %></td>
+    <td><%= spell.spell_resistance %></td>
+    <td><%= spell.short_description %></td>
+    <td><%= spell.to_develop %></td>
+    <td><%= spell.material_components %></td>
+    <td><%= spell.arcane_material_components %></td>
+    <td><%= spell.focus %></td>
+    <td><%= spell.description %></td>
+    <td><%= spell.xp_cost %></td>
+    <td><%= spell.arcane_focus %></td>
+    <td><%= spell.wizard_focus %></td>
+    <td><%= spell.verbal_components %></td>
+    <td><%= spell.sorcerer_focus %></td>
+    <td><%= spell.bard_focus %></td>
+    <td><%= spell.cleric_focus %></td>
+    <td><%= spell.druid_focus %></td>
+    <td><%= spell.full_text %></td>
+    <td><%= spell.reference %></td>
+    <td><%= link_to 'Show', spell %></td>
+    <td><%= link_to 'Edit', edit_spell_path(spell) %></td>
+    <td><%= link_to 'Destroy', spell, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Spell', new_spell_path %>

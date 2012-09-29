@@ -1,0 +1,42 @@
+<%= simple_form_for(@spell) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :altname %>
+    <%= f.input :school %>
+    <%= f.input :subschool %>
+    <%= f.input :descriptor %>
+    <%= f.input :spellcraft_dc %>
+    <%= f.input :level %>
+    <%= f.input :components %>
+    <%= f.input :casting_time %>
+    <%= f.input :spell_range %>
+    <%= f.input :spell_target %>
+    <%= f.input :area %>
+    <%= f.input :result %>
+    <%= f.input :duration %>
+    <%= f.input :saving_throw %>
+    <%= f.input :spell_resistance %>
+    <%= f.input :short_description %>
+    <%= f.input :to_develop %>
+    <%= f.input :material_components %>
+    <%= f.input :arcane_material_components %>
+    <%= f.input :focus %>
+    <%= f.input :description %>
+    <%= f.input :xp_cost %>
+    <%= f.input :arcane_focus %>
+    <%= f.input :wizard_focus %>
+    <%= f.input :verbal_components %>
+    <%= f.input :sorcerer_focus %>
+    <%= f.input :bard_focus %>
+    <%= f.input :cleric_focus %>
+    <%= f.input :druid_focus %>
+    <%= f.input :full_text %>
+    <%= f.input :reference %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

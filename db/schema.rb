@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929023059) do
+ActiveRecord::Schema.define(:version => 20120929032353) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -301,29 +301,46 @@ ActiveRecord::Schema.define(:version => 20120929023059) do
 
   create_table "spell_slots", :force => true do |t|
     t.integer  "character_id"
-    t.integer  "spell_id"
+    t.integer  "magic_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   create_table "spells", :force => true do |t|
     t.string   "name"
+    t.string   "altname"
     t.string   "school"
+    t.string   "subschool"
     t.string   "descriptor"
-    t.text     "description"
-    t.integer  "cl_cleric"
-    t.integer  "cl_druid"
-    t.integer  "cl_paladin"
-    t.integer  "cl_sorcerer"
-    t.integer  "cl_ranger"
-    t.integer  "cl_wizard"
+    t.integer  "spellcraft_dc"
+    t.string   "level"
     t.text     "components"
     t.string   "casting_time"
-    t.string   "range"
+    t.string   "spell_range"
+    t.string   "spell_target"
+    t.string   "area"
+    t.string   "result"
     t.string   "duration"
     t.string   "saving_throw"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "spell_resistance"
+    t.string   "short_description"
+    t.text     "to_develop"
+    t.text     "material_components"
+    t.string   "arcane_material_components"
+    t.text     "focus"
+    t.text     "description"
+    t.text     "xp_cost"
+    t.string   "arcane_focus"
+    t.string   "wizard_focus"
+    t.string   "verbal_components"
+    t.string   "sorcerer_focus"
+    t.string   "bard_focus"
+    t.string   "cleric_focus"
+    t.string   "druid_focus"
+    t.text     "full_text"
+    t.string   "reference"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end

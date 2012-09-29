@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Power do
 
 	it "should have many spell slots as spell" do 
-		should have_many(:spell_slots)
+		should have_many(:spell_slot)
 	end
 
 	it "should have a valid name" do 

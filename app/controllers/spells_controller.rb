@@ -1,10 +1,6 @@
 class SpellsController < ApplicationController
-
-	before_filter :authenticate_player!
-  before_filter do 
-    redirect_to root_path unless current_player.admin?
-  end
-  
+  # GET /spells
+  # GET /spells.json
   def index
     @spells = Spell.all
 
@@ -14,6 +10,8 @@ class SpellsController < ApplicationController
     end
   end
 
+  # GET /spells/1
+  # GET /spells/1.json
   def show
     @spell = Spell.find(params[:id])
 
@@ -23,6 +21,8 @@ class SpellsController < ApplicationController
     end
   end
 
+  # GET /spells/new
+  # GET /spells/new.json
   def new
     @spell = Spell.new
 
@@ -32,10 +32,13 @@ class SpellsController < ApplicationController
     end
   end
 
+  # GET /spells/1/edit
   def edit
     @spell = Spell.find(params[:id])
   end
 
+  # POST /spells
+  # POST /spells.json
   def create
     @spell = Spell.new(params[:spell])
 
@@ -50,6 +53,8 @@ class SpellsController < ApplicationController
     end
   end
 
+  # PUT /spells/1
+  # PUT /spells/1.json
   def update
     @spell = Spell.find(params[:id])
 
@@ -64,14 +69,15 @@ class SpellsController < ApplicationController
     end
   end
 
+  # DELETE /spells/1
+  # DELETE /spells/1.json
   def destroy
     @spell = Spell.find(params[:id])
     @spell.destroy
 
     respond_to do |format|
-      format.html { redirect_to spells_path }
+      format.html { redirect_to spells_url }
       format.json { head :no_content }
     end
   end
-
 end
