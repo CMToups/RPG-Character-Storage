@@ -1,4 +1,4 @@
 class SpellSlot < ActiveRecord::Base
 	belongs_to :character
-	belongs_to :spell
+	belongs_to :spell, :polymorphic => true
 end

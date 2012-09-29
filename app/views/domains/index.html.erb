@@ -1,0 +1,47 @@
+<h1>Listing domains</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Granted powers</th>
+    <th>Spell 1</th>
+    <th>Spell 2</th>
+    <th>Spell 3</th>
+    <th>Spell 4</th>
+    <th>Spell 5</th>
+    <th>Spell 6</th>
+    <th>Spell 7</th>
+    <th>Spell 8</th>
+    <th>Spell 9</th>
+    <th>Full text</th>
+    <th>Reference</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @domains.each do |domain| %>
+  <tr>
+    <td><%= domain.name %></td>
+    <td><%= domain.granted_powers %></td>
+    <td><%= domain.spell_1 %></td>
+    <td><%= domain.spell_2 %></td>
+    <td><%= domain.spell_3 %></td>
+    <td><%= domain.spell_4 %></td>
+    <td><%= domain.spell_5 %></td>
+    <td><%= domain.spell_6 %></td>
+    <td><%= domain.spell_7 %></td>
+    <td><%= domain.spell_8 %></td>
+    <td><%= domain.spell_9 %></td>
+    <td><%= domain.full_text %></td>
+    <td><%= domain.reference %></td>
+    <td><%= link_to 'Show', domain %></td>
+    <td><%= link_to 'Edit', edit_domain_path(domain) %></td>
+    <td><%= link_to 'Destroy', domain, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Domain', new_domain_path %>

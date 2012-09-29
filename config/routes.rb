@@ -1,5 +1,9 @@
 RPGCharacterStorage::Application.routes.draw do
 
+  resources :powers
+
+  resources :domains
+
   devise_for :players
 
   resources :players
@@ -28,6 +32,7 @@ RPGCharacterStorage::Application.routes.draw do
   match "/references", :to => "references#index"
     get "references/find" => 'references#find', :as => :find_references
     get "references/show" => 'references#show', :as => :show_references
+    get "references/show_epic" => 'references#show_epic', :as => :show_epic_references 
     
   root :to => "home#index"
   # The priority is based upon order of creation:

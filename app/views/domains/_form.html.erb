@@ -1,0 +1,23 @@
+<%= simple_form_for(@domain) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :granted_powers %>
+    <%= f.input :spell_1 %>
+    <%= f.input :spell_2 %>
+    <%= f.input :spell_3 %>
+    <%= f.input :spell_4 %>
+    <%= f.input :spell_5 %>
+    <%= f.input :spell_6 %>
+    <%= f.input :spell_7 %>
+    <%= f.input :spell_8 %>
+    <%= f.input :spell_9 %>
+    <%= f.input :full_text %>
+    <%= f.input :reference %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

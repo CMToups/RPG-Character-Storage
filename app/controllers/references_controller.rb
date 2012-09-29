@@ -25,4 +25,12 @@ class ReferencesController < ApplicationController
     end
   end
   
+  def show_epic
+  	@klass = params[:klass].constantize.find(params[:id]) 
+  	@reference = params[:klass]
+  	respond_to do |format|
+      format.js
+    end
+  end
+  
 end

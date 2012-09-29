@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928043504) do
+ActiveRecord::Schema.define(:version => 20120929020044) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -69,6 +69,24 @@ ActiveRecord::Schema.define(:version => 20120928043504) do
   end
 
   add_index "characters_possessions", ["character_id", "possession_id"], :name => "index_characters_possessions_on_character_id_and_possession_id"
+
+  create_table "domains", :force => true do |t|
+    t.string   "name"
+    t.text     "granted_powers"
+    t.string   "spell_1"
+    t.string   "spell_2"
+    t.string   "spell_3"
+    t.string   "spell_4"
+    t.string   "spell_5"
+    t.string   "spell_6"
+    t.string   "spell_7"
+    t.string   "spell_8"
+    t.string   "spell_9"
+    t.text     "full_text"
+    t.string   "reference"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "effectables", :force => true do |t|
     t.integer  "effect_id"
@@ -171,14 +189,38 @@ ActiveRecord::Schema.define(:version => 20120928043504) do
 
   create_table "role_types", :force => true do |t|
     t.string   "name"
-    t.integer  "role_id"
-    t.text     "description"
-    t.text     "alignment"
+    t.string   "category"
+    t.string   "alignment"
     t.string   "hit_die"
-    t.integer  "skill_rank_per_level"
-    t.text     "spells_per_day"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.text     "role_skills"
+    t.integer  "skill_points"
+    t.string   "skill_points_ability"
+    t.string   "spell_stat"
+    t.text     "proficiencies"
+    t.string   "caster_type"
+    t.integer  "epic_feat_base_level"
+    t.integer  "epic_feat_interval"
+    t.text     "epic_feat_list"
+    t.text     "epic_full_text"
+    t.string   "req_race"
+    t.string   "req_weapon_proficiency"
+    t.integer  "req_base_attack_bonus"
+    t.string   "req_skill"
+    t.string   "req_feat"
+    t.string   "req_spells"
+    t.string   "req_languages"
+    t.string   "req_psionics"
+    t.string   "req_epic_feat"
+    t.string   "req_special"
+    t.text     "spell_list_1"
+    t.string   "spell_list_2"
+    t.string   "spell_list_3"
+    t.string   "spell_list_4"
+    t.string   "spell_list_5"
+    t.text     "full_text"
+    t.string   "reference"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "role_types_skills", :id => false, :force => true do |t|

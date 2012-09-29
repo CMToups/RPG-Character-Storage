@@ -1,0 +1,63 @@
+<h1>Listing powers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Discipline</th>
+    <th>Subdiscipline</th>
+    <th>Descriptor</th>
+    <th>Level</th>
+    <th>Display</th>
+    <th>Manifesting time</th>
+    <th>Power range</th>
+    <th>Power target</th>
+    <th>Area</th>
+    <th>Result</th>
+    <th>Duration</th>
+    <th>Saving throw</th>
+    <th>Power points</th>
+    <th>Power resistance</th>
+    <th>Short description</th>
+    <th>Xp cost</th>
+    <th>Description</th>
+    <th>Augment</th>
+    <th>Full text</th>
+    <th>Reference</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @powers.each do |power| %>
+  <tr>
+    <td><%= power.name %></td>
+    <td><%= power.discipline %></td>
+    <td><%= power.subdiscipline %></td>
+    <td><%= power.descriptor %></td>
+    <td><%= power.level %></td>
+    <td><%= power.display %></td>
+    <td><%= power.manifesting_time %></td>
+    <td><%= power.power_range %></td>
+    <td><%= power.power_target %></td>
+    <td><%= power.area %></td>
+    <td><%= power.result %></td>
+    <td><%= power.duration %></td>
+    <td><%= power.saving_throw %></td>
+    <td><%= power.power_points %></td>
+    <td><%= power.power_resistance %></td>
+    <td><%= power.short_description %></td>
+    <td><%= power.xp_cost %></td>
+    <td><%= power.description %></td>
+    <td><%= power.augment %></td>
+    <td><%= power.full_text %></td>
+    <td><%= power.reference %></td>
+    <td><%= link_to 'Show', power %></td>
+    <td><%= link_to 'Edit', edit_power_path(power) %></td>
+    <td><%= link_to 'Destroy', power, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Power', new_power_path %>

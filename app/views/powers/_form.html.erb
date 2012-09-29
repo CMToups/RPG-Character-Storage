@@ -1,0 +1,31 @@
+<%= simple_form_for(@power) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :discipline %>
+    <%= f.input :subdiscipline %>
+    <%= f.input :descriptor %>
+    <%= f.input :level %>
+    <%= f.input :display %>
+    <%= f.input :manifesting_time %>
+    <%= f.input :power_range %>
+    <%= f.input :power_target %>
+    <%= f.input :area %>
+    <%= f.input :result %>
+    <%= f.input :duration %>
+    <%= f.input :saving_throw %>
+    <%= f.input :power_points %>
+    <%= f.input :power_resistance %>
+    <%= f.input :short_description %>
+    <%= f.input :xp_cost %>
+    <%= f.input :description %>
+    <%= f.input :augment %>
+    <%= f.input :full_text %>
+    <%= f.input :reference %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

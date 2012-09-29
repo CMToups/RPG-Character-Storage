@@ -45,7 +45,7 @@
 		</header>
     <div class="container-fluid">
       <div class="row-fluid">
-    	  <div class="span2">
+    	  <div class="span1">
 		      <div id="reftab" class="tabbable tabs-left">  
 				    <ul class="nav nav-tabs">  
 				        <li class="nav-header"></li>
@@ -55,12 +55,12 @@
 						    <li><%= link_to "Classes", find_references_path(:klass => "RoleType"), :remote => true, :data => {:toggle=>"tab"} %></li>  
 						    <li><%= link_to "Skills", find_references_path(:klass => "SkillType"), :remote => true, :data => {:toggle=>"tab"} %></li>  
 						    <li><%= link_to "Feats", find_references_path(:klass => "Feat"), :remote => true, :data => {:toggle=>"tab"} %></li>
-						    <li><%= link_to "Spells", find_references_path(:klass => "Spell"), :remote => true, :data => {:toggle=>"tab"} %></li>
+						    <li><%= link_to "Domains", find_references_path(:klass => "Domain"), :remote => true, :data => {:toggle=>"tab"} %></li>
 						    <li><%= link_to "Possessions", find_references_path(:klass => "Possession"), :remote => true, :data => {:toggle=>"tab"} %></li> 
 					    </ul>
 					</div>
 		    </div>
-        <div class="span10">
+        <div class="span11">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
