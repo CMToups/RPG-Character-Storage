@@ -1,0 +1,6 @@
+<div class="dl-horizontal" id="epic" >
+  <p><%=raw klass.epic_full_text %></p>
+  <strong><%= klass.class.human_attribute_name(:reference) %>:</strong> <%= klass.reference %><br />
+  <%= link_to "Back", find_references_path(:klass => @reference), :remote => true %>
+  <div style="height: 10px"></div> <!-- this is padding for the oddness of partial height maxing. -->
+</div>

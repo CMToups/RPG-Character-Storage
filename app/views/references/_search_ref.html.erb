@@ -1,11 +1,14 @@
 <% model_class = @klass %>
 <% unless @klass_search.empty?  %>
-	<%  @klass_search.each do |result| %>
-		<dl class="dl-horizontal" id="show-result">
-		  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-		  <dd><%= link_to result.name, show_references_path(:id => result.id, :klass => result.class.name), :remote => true %></dd>
-		</dl>
-	<% end %>
+	<div id="search">
+		<%  @klass_search.each do |result| %>
+			<dl class="dl-horizontal">
+			  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+			  <dd><%= link_to result.name, show_references_path(:id => result.id, :klass => result.class.name), :remote => true %> <%= link_to "[Epic]", show_epic_references_path(:id => result.id, :klass => result.class.name), :remote => true if (result.respond_to?(:epic_full_text) && result.epic_full_text) %></dd> 
+			  
+			</dl>
+		<% end %>
+	</div>
 <% else %>
 <p class="lead">
 			Sorry, but we have not yet added any <%= model_class.to_s.pluralize %> to our library.
