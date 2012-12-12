@@ -25,6 +25,27 @@
   <% @character.ability.each do |ability| %>
 	<%= ability.name %>: <%= ability.value %> Mod: <%= ability.modifier %><br \>
   <% end %>
+  <%= link_to "Edit Abilities","#new-post-modal", :data => {:toggle=>"modal"}, :class=>"btn"%>
+	<div class="modal hide fade" id="new-post-modal">
+		<%=  simple_form_for(@character, :html => {:class => 'form-horizontal' }) do |f| %>
+		  <% if @character.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+		
+		      <ul>
+		      <% @character.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+			<%= f.simple_fields_for :ability do |ff| %>
+			  <%= ff.object.name  %>
+			  <%= ff.number_field :value %><br />
+			<% end %>
+		<%= f.submit %>
+	<% end %>
+	</div>
 </p>
 
 <p>
@@ -87,15 +108,9 @@
 <p>
   <b>Classes:</b><br \>
 	<% @character.role.each do |role| %>
-	  Name:	<%= role.role_type.name %><br \>
+	  Name:	<%= link_to role.role_type.name, role_type_path(:id => role.role_type.id) %><br \>
 	<% end %>
 </p>
 
-<p>
-  <b>Spell List:</b><br \>
-  <% @character.spell.each do |spell| %>
-		  Name:	<%= spell.name %><br \>
-	<% end %>
-</p>
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>

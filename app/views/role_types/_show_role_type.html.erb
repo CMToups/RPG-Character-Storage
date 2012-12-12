@@ -1,17 +1,5 @@
 <dl class="dl-horizontal">
-  <dt><strong><%= klass.class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= klass.name %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:role_id) %>:</strong></dt>
-  <dd><%= klass.role_id %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= klass.description %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:alignment) %>:</strong></dt>
-  <dd><%= klass.alignment %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:hit_die) %>:</strong></dt>
-  <dd><%= klass.hit_die %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:skill_rank_per_level) %>:</strong></dt>
-  <dd><%= klass.skill_rank_per_level %></dd>
-  <dt><strong><%= klass.class.human_attribute_name(:spells_per_day) %>:</strong></dt>
-  <dd><%= klass.spells_per_day %></dd>
+	  <dd><%=raw klass.full_text %></dd>
+	  <dd><strong><%= klass.class.human_attribute_name(:reference) %>:</strong> <%= klass.reference %></d>
 </dl>
 <%= link_to "Back", find_references_path(:klass => @reference), :remote => true, :data => {:toggle=>"tab"} if @reference %>

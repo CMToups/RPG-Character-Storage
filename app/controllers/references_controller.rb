@@ -1,12 +1,5 @@
 class ReferencesController < ApplicationController
 
-before_filter :authenticate_player!
-  before_filter do 
-  	unless current_player.admin?
-	  	flash[:error] = "Sorry we are still building that, please try again later!"
-	    redirect_to root_path 
-    end
-  end
 
 
 	layout("references")

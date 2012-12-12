@@ -36,7 +36,7 @@ class Character < ActiveRecord::Base
   
   validates_numericality_of :total_hit_points, :experience_points, :money 
   
-  attr_accessible :name, :experience_points, :total_hit_points, :money, :ability_attributes, :background_attributes, :aspect_attributes, :feat_attributes, :skill_attributes 
+  attr_accessible :name, :experience_points, :total_hit_points, :money, :ability_attributes, :background_attributes, :aspect_attributes, :feat_attributes, :skill_attributes, :race_id, :role_type_ids
   
   def add_effect(effect)
   	klass = effect.target_klass

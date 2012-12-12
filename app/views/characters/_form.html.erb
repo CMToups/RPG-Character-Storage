@@ -10,12 +10,9 @@
       </ul>
     </div>
   <% end %>
-			<%= render "abilities", :f => f %>
-		<div class="bs-docs-example" style="padding-bottom: 24px;">
-		  <a data-toggle="modal" href="#myModal" class="btn">Edit Abilities</a>
-		</div>
-
 	  <%= f.input :name %>
+	  <%= f.association :race %>
+	  <%= f.association :role_type, :label => 'Class',:as => :check_boxes %>
     <%= f.input :experience_points %>
     <%= f.input :total_hit_points %>
     <%= f.input :money %>

@@ -51,3 +51,4 @@ gem "crapshoot", "~> 0.5.0"
 
 #form gems
 gem 'simple_form'
+gem 'client_side_validations'
